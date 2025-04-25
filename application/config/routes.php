@@ -60,6 +60,9 @@ $route['patient/appointments']        = 'patient/appointments';
 $route['patient/examination-results'] = 'patient/examination_results';
 $route['patient/ward-assignment']     = 'patient/ward_assignment';
 
+$route['admin']     = 'admin/Login/index';
+$route['admin/dashboard'] = 'admin/Dashboard/index';
+$route['admin/users'] = 'admin/Users/index';
 
 $route['default_controller'] = 'StaticPages/index';
 $route['contact-us'] = 'StaticPages/contactUs';
