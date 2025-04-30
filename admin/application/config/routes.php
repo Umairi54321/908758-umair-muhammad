@@ -54,6 +54,8 @@ $route['admin/dashboard'] = 'admin/Dashboard/index';
 $route['admin/users'] = 'admin/Users/index';
 $route['admin/patients'] = 'admin/Users/index';
 $route['admin/appointments'] = 'admin/Appointments/index';
+$route['admin/examinations'] = 'admin/Examinations/index';
+$route['admin/wards'] = 'admin/Wards/index';
 $route['admin/emergency-patients'] = 'admin/Emergency/index';
 $route['admin/logout'] = 'admin/Login/logout';
 
