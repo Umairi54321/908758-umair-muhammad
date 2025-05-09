@@ -7,8 +7,8 @@
         <!-- LOGO -->
         <div class="topbar-left">
             <a href="<?=base_url()?>master" class="logo">
-                <img src="<?=base_url()?>assets/admin/images/logo-light.png" class="logo-lg" alt="" height="22">
-                <img src="<?=base_url()?>assets/admin/images/logo-sm.png" class="logo-sm" alt="" height="24">
+                <img src="<?=base_url()?>assets/images/logo-light.png" class="logo-lg" alt="" height="22">
+                <img src="<?=base_url()?>assets/images/logo-sm.png" class="logo-sm" alt="" height="24">
             </a>
         </div>
 
@@ -30,12 +30,12 @@
                     <div class="dropdown notification-list nav-pro-img">
                         <a class="dropdown-toggle nav-link arrow-none waves-effect nav-user" data-toggle="dropdown"
                             href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <img src="<?=base_url()?>assets/admin/images/users/user-1.jpg" alt="user" class="rounded-circle">
+                            <img src="<?=base_url()?>assets/images/users/user-1.jpg" alt="user" class="rounded-circle">
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown">
 
 
-                            <a class="dropdown-item text-danger" href="<?=site_url()?>master/logout"><i
+                            <a class="dropdown-item text-danger" href="<?=site_url()?>admin/logout"><i
                                     class="mdi mdi-power text-danger"></i> Logout</a>
                         </div>
                     </div>

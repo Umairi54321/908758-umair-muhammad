@@ -6,12 +6,12 @@ class Login extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('AdminModel');
+        $this->load->model('StaffModel');
     }
 
     public function index() {
         $data = [];
-        $this->load->view('dashboard/admin-login', $data);
+        $this->load->view('dashboard/staff-login', $data);
     }
 
     public function do_login()
@@ -21,14 +21,14 @@ class Login extends CI_Controller {
         $email = $this->input->post('email');
         $password = $this->input->post('password');
 
-        $admin = $this->AdminModel->get_admin_by_email($email);
+        $staff = $this->StaffModel->get_staff_by_email($email);
 
-        if ($admin && password_verify($password, $admin->password)) {
+        if ($staff && password_verify($password, $staff->password)) {
             // Save session data
             $this->session->set_userdata([
-                'admin_id' => $admin->id,
-                'admin_name' => $admin->name,
-                'admin_email' => $admin->email
+                'staff_id' => $staff->id,
+                'staff_name' => $staff->name,
+                'satff_email' => $staff->email
             ]);
 
             echo json_encode([
@@ -45,9 +45,9 @@ class Login extends CI_Controller {
 
     public function logout()
     {
-        $this->session->unset_userdata(['admin_id', 'admin_name', 'admin_email']);
+        $this->session->unset_userdata(['staff_id', 'staff_name', 'staff_email']);
         $this->session->sess_destroy();
-        redirect('admin');
+        redirect('staff');
     }
 
  

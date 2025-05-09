@@ -2,10 +2,11 @@
 class ExaminationsModel extends CI_Model {
 
     public function get_all_with_details() {
-        $this->db->select('examinations.*, patients.first_name, doctors.name as doctor_name');
+        $this->db->select('examinations.*, patients.first_name, users.name as doctor_name');
         $this->db->from('examinations');
         $this->db->join('patients', 'patients.id = examinations.patient_id', 'left');
-        $this->db->join('doctors', 'doctors.id = examinations.doctor_id', 'left');
+        $this->db->join('users', 'users.id = examinations.doctor_id', 'left');
+        $this->db->where('users.role', 'doctor');
         return $this->db->get()->result();
     }
 

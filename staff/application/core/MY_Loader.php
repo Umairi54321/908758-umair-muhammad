@@ -18,24 +18,7 @@ class MY_Loader extends CI_Loader {
 			$this->view('blocks/footer_scripts', $vars);
          }
     }
-	public function adminTemplate($template_name, $vars = array(), $return = FALSE){
-		if($return){
-		 $content  = $this->view('admin/blocks/header_scripts', $vars, $return);
-		 $content .= $this->view('admin/blocks/navbar', $vars, $return);
-		 $content .= $this->view('admin/blocks/sidebar', $vars, $return);
-		 $content .= $this->view('admin/'.$template_name, $vars, $return);
-		 $content .= $this->view('admin/blocks/footer', $vars, $return);
-		 $content .= $this->view('admin/blocks/footer_scripts', $vars, $return);
-		 return $content;
-	 }else{
-		 $this->view('admin/blocks/header_scripts', $vars);
-		 $this->view('admin/blocks/navbar', $vars);
-		 $this->view('admin/blocks/sidebar', $vars);
-		 $this->view('admin/'.$template_name, $vars);
-		 $this->view('admin/blocks/footer', $vars);
-		 $this->view('admin/blocks/footer_scripts', $vars);
-	 }
- }
+	
 
  public function vendorTemplate($template_name, $vars = array(), $return = FALSE){
 	if($return){

@@ -5,7 +5,8 @@ class AppointmentsModel extends CI_Model {
         $this->db->select('a.*, p.first_name as patient_name, d.name as doctor_name');
         $this->db->from('appointments a');
         $this->db->join('patients p', 'p.id = a.patient_id');
-        $this->db->join('doctors d', 'd.id = a.doctor_id');
+        $this->db->join('users d', 'd.id = a.doctor_id');
+        $this->db->where('d.role', 'doctor');
         return $this->db->get()->result();
     }
 

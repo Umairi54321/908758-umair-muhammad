@@ -50,24 +50,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
+$route['staff/dashboard'] = 'staff/Dashboard/index';
+$route['staff/users'] = 'staff/Users/index';
+$route['staff/patients'] = 'staff/Patients/index';
+$route['staff/appointments'] = 'staff/Appointments/index';
+$route['staff/examinations'] = 'staff/Examinations/index';
+$route['staff/wards'] = 'staff/Wards/index';
+$route['staff/emergency-patients'] = 'staff/Emergency/index';
+$route['staff/logout'] = 'staff/Login/logout';
 
-// Patient Portal Routes
-$route['patient/register']             = 'patient/register';
-$route['patient/login']               = 'patient/login';
-$route['patient/dashboard']           = 'patient/dashboard';
-$route['patient/logout']              = 'patient/logout';
-$route['patient/appointments']        = 'patient/appointments';
-$route['patient/examination-results'] = 'patient/examination_results';
-$route['patient/ward-assignment']     = 'patient/ward_assignment';
-
-$route['admin']     = 'admin/Login/index';
-$route['admin/dashboard'] = 'admin/Dashboard/index';
-$route['admin/users'] = 'admin/Users/index';
-$route['admin/patients'] = 'admin/Users/index';
-
-$route['default_controller'] = 'StaticPages/index';
-$route['contact-us'] = 'StaticPages/contactUs';
-$route['faq'] = 'StaticPages/faq';
-$route['about-us'] = 'StaticPages/aboutUs';
+$route['default_controller'] = 'staff/Login/index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;

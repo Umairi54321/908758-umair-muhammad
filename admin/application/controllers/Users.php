@@ -18,7 +18,7 @@ class Users extends CI_Controller {
 
     public function get_users_api() {
         header('Content-Type: application/json');
-        $users = $this->User_model->get_all_users();
+        $users = $this->UserModel->get_all_users();
         echo json_encode($users);
     }
     
@@ -33,7 +33,7 @@ class Users extends CI_Controller {
             'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT)
         ];
     
-        if ($this->User_model->add_user($data)) {
+        if ($this->UserModel->add_user($data)) {
             echo json_encode(['status' => true, 'message' => 'User added successfully']);
         } else {
             echo json_encode(['status' => false, 'message' => 'Failed to add user']);
@@ -54,7 +54,7 @@ class Users extends CI_Controller {
             $data['password'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
         }
     
-        if ($this->User_model->update_user($id, $data)) {
+        if ($this->UserModel->update_user($id, $data)) {
             echo json_encode(['status' => true, 'message' => 'User updated']);
         } else {
             echo json_encode(['status' => false, 'message' => 'Update failed']);
@@ -64,7 +64,7 @@ class Users extends CI_Controller {
     public function delete_user_api($id) {
         header('Content-Type: application/json');
     
-        if ($this->User_model->delete_user($id)) {
+        if ($this->UserModel->delete_user($id)) {
             echo json_encode(['status' => true, 'message' => 'User deleted']);
         } else {
             echo json_encode(['status' => false, 'message' => 'Delete failed']);

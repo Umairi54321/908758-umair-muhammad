@@ -74,8 +74,8 @@
                              <select name="role" class="form-control" required>
                                  <option value="doctor">Doctor</option>
                                  <option value="nurse">Nurse</option>
-                                 <option value="technician">Technician</option>
-                                 <option value="admin_staff">Admin Staff</option>
+                                 <option value="staff">Staff</option>
+                                 <option value="admin">Admin Staff</option>
                              </select>
                          </div>
                          <div class="form-group"><label>Password</label><input type="password" name="password"
@@ -101,7 +101,7 @@
 
  <script>
 function loadUsers() {
-    $.getJSON("<?= base_url('admin/users/get_users_api') ?>", function(users) {
+    $.getJSON("<?= base_url('users/get_users_api') ?>", function(users) {
         let rows = '';
         users.forEach(u => {
             rows += `<tr>
@@ -124,7 +124,7 @@ $('#addUserBtn').click(function() {
 
 $(document).on('click', '.editBtn', function() {
     const id = $(this).data('id');
-    $.getJSON("<?= base_url('admin/users/get_users_api') ?>", function(users) {
+    $.getJSON("<?= base_url('users/get_users_api') ?>", function(users) {
         const u = users.find(user => user.id == id);
         if (u) {
             $('input[name=user_id]').val(u.id);
@@ -141,7 +141,7 @@ $(document).on('click', '.editBtn', function() {
 $('#userForm').submit(function(e) {
     e.preventDefault();
     const id = $('input[name=user_id]').val();
-    const url = id ? "<?= base_url('admin/users/update_user_api/') ?>" + id : "<?= base_url('admin/users/add_user_api') ?>";
+    const url = id ? "<?= base_url('users/update_user_api/') ?>" + id : "<?= base_url('users/add_user_api') ?>";
     $.post(url, $(this).serialize(), function(res) {
         Swal.fire(res.status ? 'Success' : 'Error', res.message, res.status ? 'success' : 'error');
         if (res.status) {
@@ -159,7 +159,7 @@ $(document).on('click', '.deleteBtn', function() {
         confirmButtonText: 'Delete'
     }).then(res => {
         if (res.isConfirmed) {
-            $.get("<?= base_url('admin/users/delete_user_api/') ?>" + id, function(res) {
+            $.get("<?= base_url('users/delete_user_api/') ?>" + id, function(res) {
                 Swal.fire(res.status ? 'Deleted!' : 'Error', res.message, res.status ? 'success' : 'error');
                 if (res.status) loadUsers();
             }, 'json');

@@ -5,14 +5,14 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <title>Hospital Management System | Login</title>
+    <title>Hospital Management System | Staff Login</title>
     <meta content="Responsive admin theme build on top of Bootstrap 4" name="description" />
     <meta content="Themesdesign" name="author" />
-    <link rel="shortcut icon" href="<?=base_url();?>assets/admin/images/favicon.ico">
-    <link href="<?=base_url();?>assets/admin/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="<?=base_url();?>assets/admin/css/metismenu.min.css" rel="stylesheet" type="text/css">
-    <link href="<?=base_url();?>assets/admin/css/icons.css" rel="stylesheet" type="text/css">
-    <link href="<?=base_url();?>assets/admin/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="<?=base_url();?>assets/images/favicon.ico">
+    <link href="<?=base_url();?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="<?=base_url();?>assets/css/metismenu.min.css" rel="stylesheet" type="text/css">
+    <link href="<?=base_url();?>assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="<?=base_url();?>assets/css/style.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -29,7 +29,7 @@
                         <div class="card-body">
                             <div class="text-center mt-0 mb-3">
                                 <a href="" class="logo logo-admin">
-                                    <img src="<?=base_url();?>assets/admin/images/logo-light.png" class="mt-3" alt=""
+                                    <img src="<?=base_url();?>assets/images/logo-light.png" class="mt-3" alt=""
                                         height="26"></a>
                                 <p class="text-muted w-75 mx-auto mb-4 mt-4">Enter your email address and password to
                                     access dashboard panel.</p>
@@ -73,13 +73,13 @@
     </div>
 
     <!-- jQuery  -->
-    <script src="<?=base_url();?>assets/admin/js/jquery.min.js"></script>
-    <script src="<?=base_url();?>assets/admin/js/bootstrap.bundle.min.js"></script>
-    <script src="<?=base_url();?>assets/admin/js/metismenu.min.js"></script>
-    <script src="<?=base_url();?>assets/admin/js/jquery.slimscroll.js"></script>
-    <script src="<?=base_url();?>assets/admin/js/waves.min.js"></script>
+    <script src="<?=base_url();?>assets/js/jquery.min.js"></script>
+    <script src="<?=base_url();?>assets/js/bootstrap.bundle.min.js"></script>
+    <script src="<?=base_url();?>assets/js/metismenu.min.js"></script>
+    <script src="<?=base_url();?>assets/js/jquery.slimscroll.js"></script>
+    <script src="<?=base_url();?>assets/js/waves.min.js"></script>
     <!-- App js -->
-    <script src="<?=base_url();?>assets/admin/js/app.js"></script>
+    <script src="<?=base_url();?>assets/js/app.js"></script>
 
     <script>
     $('#adminLoginForm').on('submit', function(e) {
@@ -95,7 +95,7 @@
         });
 
         $.ajax({
-            url: '<?= base_url("admin/login/do_login") ?>',
+            url: '<?= base_url("login/do_login") ?>',
             type: 'POST',
             data: $(this).serialize(),
             dataType: 'json',
@@ -109,7 +109,7 @@
                         showConfirmButton: false
                     }).then(() => {
                         localStorage.setItem('admin_data', JSON.stringify(response.data));
-                        window.location.href = '<?= base_url("admin/dashboard") ?>';
+                        window.location.href = '<?= base_url("staff/dashboard") ?>';
                     });
                 } else {
                     Swal.fire({
