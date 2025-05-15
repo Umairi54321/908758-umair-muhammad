@@ -2,12 +2,12 @@
 class PatientModel extends CI_Model {
 
     public function get_all_patients() {
-        $this->db->where('deleted', 0);
-        return $this->db->get('patients')->result();
+        $result = $this->db->get('patients')->result();
+        return $result;
     }
 
     public function get_patient($id) {
-        return $this->db->get_where('patients', ['id' => $id, 'deleted' => 0])->row();
+        return $this->db->get_where('patients', ['id' => $id])->row();
     }
 
     public function add_patient($data) {
@@ -19,7 +19,7 @@ class PatientModel extends CI_Model {
     }
 
     public function soft_delete_patient($id) {
-        return $this->db->where('id', $id)->update('patients', ['deleted' => 1]);
+        return $this->db->where('id', $id)->delete('patients');
     }
 
     public function transfer_patient($id, $new_ward_id) {

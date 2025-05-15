@@ -1,24 +1,33 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
 class AppointmentsModel extends CI_Model {
 
-    public function get_all() {
-        $this->db->select('a.*, p.first_name as patient_name, d.name as doctor_name');
-        $this->db->from('appointments a');
-        $this->db->join('patients p', 'p.id = a.patient_id');
-        $this->db->join('users d', 'd.id = a.doctor_id');
-        $this->db->where('d.role', 'doctor');
-        return $this->db->get()->result();
+    public function get_appointments($staff_id, $type = 'upcoming') {
+        $this->db->where('staff_id', $staff_id);
+        if ($type == 'upcoming') {
+            $this->db->where('appointment_date >=', date('Y-m-d H:i:s'));
+        } else {
+            $this->db->where('appointment_date <', date('Y-m-d H:i:s'));
+        }
+        $this->db->order_by('appointment_date', 'ASC');
+        return $this->db->get('appointments')->result_array();
     }
 
-    public function insert($data) {
-        return $this->db->insert('appointments', $data);
+    public function update_status($id, $status) {
+        $this->db->where('id', $id);
+        return $this->db->update('appointments', ['status' => $status]);
     }
 
-    public function update($id, $data) {
-        $this->db->where('id', $id)->update('appointments', $data);
+    public function add_notes($id, $notes) {
+        $this->db->where('id', $id);
+        return $this->db->update('appointments', [
+            'notes' => $notes,
+            'status' => 'completed'
+        ]);
     }
 
-    public function delete($id) {
-        $this->db->where('id', $id)->update('appointments', ['status' => 'cancelled']);
+    public function get_appointment($id) {
+        return $this->db->get_where('appointments', ['id' => $id])->row_array();
     }
 }

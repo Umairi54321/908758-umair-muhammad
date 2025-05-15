@@ -8,13 +8,18 @@ class PatientController extends CI_Controller {
         $this->load->model('PatientModel');
         $this->load->model('ExaminationsModel');
         if (!$this->session->userdata('staff_id')) {
-            redirect('staff'); 
+            redirect('/'); 
         }
     }
 
     public function index() {
         $data['patients'] = $this->PatientModel->get_assigned_patients($this->session->userdata('staff_id'));
         $this->load->Template('patients/index', $data);
+    }
+
+    public function get_patients_api() {
+        header('Content-Type: application/json');
+        echo json_encode($this->PatientModel->get_all_patients());
     }
 
     public function search() {

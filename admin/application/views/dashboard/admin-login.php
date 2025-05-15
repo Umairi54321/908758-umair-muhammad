@@ -13,6 +13,7 @@
     <link href="<?=base_url();?>assets/css/metismenu.min.css" rel="stylesheet" type="text/css">
     <link href="<?=base_url();?>assets/css/icons.css" rel="stylesheet" type="text/css">
     <link href="<?=base_url();?>assets/css/style.css" rel="stylesheet" type="text/css">
+       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
@@ -109,7 +110,7 @@
                         showConfirmButton: false
                     }).then(() => {
                         localStorage.setItem('admin_data', JSON.stringify(response.data));
-                        window.location.href = '<?= base_url("admin/dashboard") ?>';
+                        window.location.href = '<?= base_url("dashboard") ?>';
                     });
                 } else {
                     Swal.fire({

@@ -5,7 +5,7 @@ class Appointments extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('AppointmentsModel-');
+        $this->load->model('AppointmentsModel');
         if (!$this->session->userdata('admin_id')) {
             redirect('/'); 
         }
@@ -28,8 +28,7 @@ class Appointments extends CI_Controller {
             'doctor_id' => $this->input->post('doctor_id'),
             'appointment_date' => $this->input->post('appointment_date'),
             'appointment_time' => $this->input->post('appointment_time'),
-            'notes' => $this->input->post('notes'),
-            'status' => $this->input->post('status') ?? 'scheduled'
+            'notes' => $this->input->post('notes')
         ];
         $id = $this->input->post('id');
         if ($id) {

@@ -9,7 +9,7 @@
 
             <!-- Form Area -->
             <div class="registration-form">
-                <form method="POST" action="<?= base_url('patient/register') ?>">
+                <form method="POST" action="<?= base_url('register') ?>">
                     <h3>Register Here</h3>
 
                     <!-- Success Message -->
@@ -64,7 +64,7 @@
                     </div>
 
                     <input type="submit" value="Signup" name="register">
-                    <a class="login-link" href="<?= base_url('patient/login') ?>">Already have an account?</a>
+                    <a class="login-link" href="<?= base_url('login') ?>">Already have an account?</a>
                 </form>
             </div>
         </div>

@@ -7,12 +7,12 @@ class Examinations extends CI_Controller {
         parent::__construct();
         $this->load->model('ExaminationsModel');
         if (!$this->session->userdata('staff_id')) {
-            redirect('staff'); 
+            redirect('/'); 
         }
     }
 
     public function index() {
-        $this->load->adminTemplate('examinations/index', $data);
+        $this->load->Template('examinations/index', $data);
     }
 
     public function fetch_all() {

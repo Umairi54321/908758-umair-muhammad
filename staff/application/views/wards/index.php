@@ -33,13 +33,29 @@
                                  style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                  <thead>
                                      <tr>
-                                         <th>Name</th>
+                                         <th>Ward Name</th>
                                          <th>Total Beds</th>
+                                         <th>Occupied Beds</th>
+                                         <th>Available Beds</th>
                                          <th>Actions</th>
+                                     </tr>
                                  </thead>
 
                                  <tbody>
-
+                                     <?php foreach ($wards as $ward): ?>
+                                     <tr>
+                                         <td><?= $ward['name'] ?></td>
+                                         <td><?= $ward['total_beds'] ?></td>
+                                         <td><?= $ward['occupied_beds'] ?></td>
+                                         <td><?= ($ward['total_beds'] - $ward['occupied_beds']) ?></td>
+                                         <td>
+                                             <button class="btn btn-sm btn-primary assignBtn"
+                                                 data-id="<?= $ward['id'] ?>">Assign Bed</button>
+                                             <button class="btn btn-sm btn-info viewPatientsBtn"
+                                                 data-id="<?= $ward['id'] ?>">View Patients</button>
+                                         </td>
+                                     </tr>
+                                     <?php endforeach; ?>
                                  </tbody>
                              </table>
                          </div>
@@ -51,83 +67,56 @@
          <!-- end row -->
 
 
-         <div class="row mt-5">
-             <div class="col-12">
-                 <div class="card">
-                     <div class="card-body">
-                         <h5>Assign Patient to Ward</h5>
-                         <form id="assignForm">
-                             <div class="form-row">
-                                 <div class="form-group col-md-4">
-                                     <label>Patient</label>
-                                     <select name="patient_id" class="form-control" id="patientSelect"></select>
-                                 </div>
-                                 <div class="form-group col-md-4">
-                                     <label>Ward</label>
-                                     <select name="ward_id" class="form-control" id="wardSelect"></select>
-                                 </div>
-                                 <div class="form-group col-md-4">
-                                     <label>Bed Number</label>
-                                     <input type="number" name="bed_number" class="form-control">
-                                 </div>
-                             </div>
-                             <button type="submit" class="btn btn-success">Assign</button>
-                         </form>
-                     </div>
-                 </div>
-             </div>
-             <!-- end col -->
-         </div>
+         <div class="modal fade" id="assignModal" tabindex="-1">
+            <div class="modal-dialog">
+                <form id="assignForm" class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Assign Bed</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" name="ward_id" id="assignWardId">
+                        <div class="mb-3">
+                            <label>Patient ID</label>
+                            <input type="number" name="patient_id" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Available Beds</label>
+                            <select name="bed_number" id="bedSelect" class="form-control" required></select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Assign</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
-         <div class="row mt-5">
-             <div class="col-12">
-                 <div class="card">
-                     <div class="card-body">
-                         <h5>Current Assignments</h5>
-                         <table class="table table-bordered" id="assignmentTable">
-                             <thead>
-                                 <tr>
-                                     <th>Patient</th>
-                                     <th>Ward</th>
-                                     <th>Bed</th>
-                                     <th>Assigned At</th>
-                                 </tr>
-                             </thead>
-                             <tbody></tbody>
-                         </table>
-                     </div>
-                 </div>
-             </div>
-             <!-- end col -->
-         </div>
-
-
-         <!-- Add/Edit Modal -->
-         <div class="modal fade" id="wardModal" tabindex="-1">
-             <div class="modal-dialog">
-                 <form class="modal-content" id="wardForm">
-                     <div class="modal-header">
-                         <h5 class="modal-title">Add/Edit Ward</h5>
-                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                     </div>
-                     <div class="modal-body">
-                         <input type="hidden" name="id">
-                         <div class="form-group">
-                             <label>Ward Name</label>
-                             <input type="text" name="name" class="form-control" required>
-                         </div>
-                         <div class="form-group">
-                             <label>Total Beds</label>
-                             <input type="number" name="total_beds" class="form-control" required>
-                         </div>
-                     </div>
-                     <div class="modal-footer">
-                         <button class="btn btn-success" type="submit">Save</button>
-                         <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                     </div>
-                 </form>
-             </div>
-         </div>
+        <!-- Patients Modal -->
+        <div class="modal fade" id="patientsModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Patients in Ward</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Patient Name</th>
+                                    <th>Email</th>
+                                    <th>Bed Number</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="patientsTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 
@@ -141,70 +130,73 @@
 
 
  <script>
-function fetchWards() {
-    $.getJSON('wards/fetch_all', function(res) {
-        let rows = '';
-        let wardOptions = '<option value="">Select</option>';
-        res.data.forEach(w => {
-            rows += `<tr><td>${w.name}</td><td>${w.total_beds}</td>
-        <td><button class="btn btn-sm btn-danger" onclick="deleteWard(${w.id})">Delete</button></td></tr>`;
-            wardOptions += `<option value="${w.id}">${w.name}</option>`;
+    $(document).ready(function () {
+        let assignModal = new bootstrap.Modal(document.getElementById('assignModal'));
+        let patientsModal = new bootstrap.Modal(document.getElementById('patientsModal'));
+
+        $('.assignBtn').click(function () {
+            const wardId = $(this).data('id');
+            $('#assignWardId').val(wardId);
+            $('#bedSelect').empty();
+
+            $.getJSON('<?= base_url('Wards/get_available_beds/') ?>' + wardId, function (beds) {
+                if (beds.length === 0) {
+                    $('#bedSelect').append('<option disabled>No beds available</option>');
+                } else {
+                    beds.forEach(function (bed) {
+                        $('#bedSelect').append('<option value="' + bed + '">' + bed + '</option>');
+                    });
+                }
+                assignModal.show();
+            });
         });
-        $('#wardTable tbody').html(rows);
-        $('#wardSelect').html(wardOptions);
-    });
-}
 
-function fetchPatients() {
-    $.getJSON('wards/get_patients', function(res) {
-        let options = '<option value="">Select</option>';
-        res.data.forEach(p => {
-            options += `<option value="${p.id}">${p.first_name} ${p.last_name}</option>`;
+        $('#assignForm').submit(function (e) {
+            e.preventDefault();
+            $.post('<?= base_url('Wards/assign_bed') ?>', $(this).serialize(), function (res) {
+                const data = JSON.parse(res);
+                if (data.status === 'success') {
+                    alert('Bed assigned successfully');
+                    location.reload();
+                } else {
+                    alert(data.message || 'Failed to assign bed');
+                }
+            });
         });
-        $('#patientSelect').html(options);
-    });
-}
 
-function fetchAssignments() {
-    $.getJSON('wards/get_ward_assignments', function(res) {
-        let rows = '';
-        res.data.forEach(a => {
-            rows += `<tr><td>${a.first_name} ${a.last_name}</td>
-        <td>${a.ward_name}</td><td>${a.bed_number}</td><td>${a.assigned_at}</td></tr>`;
+        $('.viewPatientsBtn').click(function () {
+            const wardId = $(this).data('id');
+            $('#patientsTableBody').empty();
+
+            $.getJSON('<?= base_url('Wards/get_patients_by_ward/') ?>' + wardId, function (patients) {
+                if (patients.length === 0) {
+                    $('#patientsTableBody').append('<tr><td colspan="4">No patients in this ward.</td></tr>');
+                } else {
+                    patients.forEach(function (p) {
+                        $('#patientsTableBody').append(`
+                            <tr>
+                                <td>${p.patient_name}</td>
+                                <td>${p.email}</td>
+                                <td>${p.bed_number}</td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm dischargeBtn" data-id="${p.assignment_id}">Discharge</button>
+                                </td>
+                            </tr>
+                        `);
+                    });
+                    patientsModal.show();
+                }
+            });
         });
-        $('#assignmentTable tbody').html(rows);
+
+        $(document).on('click', '.dischargeBtn', function () {
+            const id = $(this).data('id');
+            if (confirm('Discharge this patient?')) {
+                $.post('<?= base_url('Wards/discharge_patient') ?>', { assignment_id: id }, function () {
+                    alert('Patient discharged');
+                    location.reload();
+                });
+            }
+        });
     });
-}
-
-$('#wardForm').submit(function(e) {
-    e.preventDefault();
-    $.post('wards/save', $(this).serialize(), function(res) {
-        alert(res.message);
-        $('#wardModal').modal('hide');
-        fetchWards();
-    }, 'json');
-});
-
-$('#assignForm').submit(function(e) {
-    e.preventDefault();
-    $.post('wards/assign_patient', $(this).serialize(), function(res) {
-        alert(res.message);
-        if (res.status) fetchAssignments();
-    }, 'json');
-});
-
-function deleteWard(id) {
-    if (confirm("Delete this ward?")) {
-        $.get('wards/delete/' + id, function(res) {
-            alert(res.message);
-            fetchWards();
-        }, 'json');
-    }
-}
-
-$(document).ready(function() {
-    fetchWards();
-    fetchPatients();
-    fetchAssignments();
-});
- </script>
+    </script>

@@ -9,7 +9,7 @@
 
             <!-- Form Area -->
             <div class="registration-form">
-                <form method="POST" action="<?= base_url('patient/login') ?>">
+                <form method="POST" action="<?= base_url('login') ?>">
                     <h3>Login</h3>
 
                     <!-- Flash Messages -->
@@ -35,7 +35,7 @@
                     </div>
 
                     <input type="submit" value="Login">
-                    <a class="login-link" href="<?= base_url('patient/register') ?>">Don't have an account? Register</a>
+                    <a class="login-link" href="<?= base_url('register') ?>">Don't have an account? Register</a>
                 </form>
             </div>
 

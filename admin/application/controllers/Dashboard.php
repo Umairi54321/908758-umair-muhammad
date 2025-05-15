@@ -8,7 +8,7 @@ class Dashboard extends CI_Controller {
         parent::__construct();
         $this->load->model('AdminModel');
         if (!$this->session->userdata('admin_id')) {
-            redirect('admin'); 
+            redirect('/'); 
         }
     }
 

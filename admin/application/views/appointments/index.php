@@ -86,14 +86,6 @@
                              <label>Notes</label>
                              <textarea name="notes" class="form-control"></textarea>
                          </div>
-                         <div class="form-group">
-                             <label>Status</label>
-                             <select name="status" class="form-control">
-                                 <option value="scheduled">Scheduled</option>
-                                 <option value="completed">Completed</option>
-                                 <option value="cancelled">Cancelled</option>
-                             </select>
-                         </div>
                      </div>
                      <div class="modal-footer">
                          <button type="submit" class="btn btn-success">Save</button>
@@ -118,11 +110,11 @@
 function loadPatientsAndDoctors() {
   $.getJSON('patients/get_patients_api', function(res) {
     let options = '<option value="">Select</option>';
-    res.data.forEach(p => options += `<option value="${p.id}">${p.first_name}</option>`);
+    res.data.forEach(p => options += `<option value="${p.id}">${p.first_name}${p.last_name}</option>`);
     $('#patientSelect').html(options);
   });
 
-  $.getJSON('api/doctor/list', function(res) {
+  $.getJSON('users/get_doctors_api', function(res) {
     let options = '<option value="">Select</option>';
     res.data.forEach(d => options += `<option value="${d.id}">${d.name}</option>`);
     $('#doctorSelect').html(options);

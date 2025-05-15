@@ -74,8 +74,8 @@
                              <select name="role" class="form-control" required>
                                  <option value="doctor">Doctor</option>
                                  <option value="nurse">Nurse</option>
-                                 <option value="staff">Staff</option>
-                                 <option value="admin">Admin Staff</option>
+                                 <option value="technician">Technician</option>
+                                 <option value="admin_staff">Admin Staff</option>
                              </select>
                          </div>
                          <div class="form-group"><label>Password</label><input type="password" name="password"

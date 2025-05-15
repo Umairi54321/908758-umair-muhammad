@@ -49,7 +49,7 @@ class PatientModel extends CI_Model {
     // Get current ward assignment for patient
     public function get_ward_assignment($patient_id) {
         return $this->db
-                    ->select('wards.name as ward_name, ward_assignments.assigned_date, ward_assignments.bed_number')
+                    ->select('wards.name as ward_name, ward_assignments.assigned_at, ward_assignments.bed_number')
                     ->from('ward_assignments')
                     ->join('wards', 'wards.id = ward_assignments.ward_id', 'left')
                     ->where('ward_assignments.patient_id', $patient_id)

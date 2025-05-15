@@ -6,13 +6,13 @@ class Emergency extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('EmergencyModel');
-        if (!$this->session->userdata('admin_id')) {
+        if (!$this->session->userdata('staff_id')) {
             redirect('/'); 
         }
     }
 
     public function index() {
-        $this->load->adminTemplate('emergency/index', $data);
+        $this->load->Template('emergency/index', $data);
     }
 
     public function fetch_all() {

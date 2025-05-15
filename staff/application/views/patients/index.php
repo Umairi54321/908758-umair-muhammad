@@ -130,7 +130,7 @@ $(document).ready(function() {
 
     $('#searchForm').submit(function(e) {
         e.preventDefault();
-        $.post('<?= base_url("PatientController/search") ?>', $(this).serialize(), function(data) {
+        $.post('<?= base_url("Patients/search") ?>', $(this).serialize(), function(data) {
             $('#patientList').html($(data).find('#patientList').html());
         });
     });

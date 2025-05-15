@@ -13,13 +13,18 @@ class Users extends CI_Controller {
     }
 
     public function index() {
-        $this->load->adminTemplate('users/index', $data);
+        $this->load->Template('users/index', $data);
     }
 
     public function get_users_api() {
         header('Content-Type: application/json');
         $users = $this->UserModel->get_all_users();
         echo json_encode($users);
+    }
+
+     public function get_doctors_api() {
+        header('Content-Type: application/json');
+        echo json_encode($this->UserModel->get_all_doctors());
     }
     
     public function add_user_api() {

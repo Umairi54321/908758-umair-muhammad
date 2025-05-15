@@ -52,13 +52,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 // Patient Portal Routes
-$route['patient/register']             = 'patient/register';
-$route['patient/login']               = 'patient/login';
-$route['patient/dashboard']           = 'patient/dashboard';
-$route['patient/logout']              = 'patient/logout';
-$route['patient/appointments']        = 'patient/appointments';
-$route['patient/examination-results'] = 'patient/examination_results';
-$route['patient/ward-assignment']     = 'patient/ward_assignment';
+$route['register']             = 'patient/register';
+$route['login']               = 'patient/login';
+$route['dashboard']           = 'patient/dashboard';
+$route['logout']              = 'patient/logout';
+$route['appointments']        = 'patient/appointments';
+$route['examination-results'] = 'patient/examination_results';
+$route['ward-assignment']     = 'patient/ward_assignment';
 
 $route['default_controller'] = 'StaticPages/index';
 $route['contact-us'] = 'StaticPages/contactUs';

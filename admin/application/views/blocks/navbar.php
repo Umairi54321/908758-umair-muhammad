@@ -35,7 +35,7 @@
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown">
 
 
-                            <a class="dropdown-item text-danger" href="<?=site_url()?>admin/logout"><i
+                            <a class="dropdown-item text-danger" href="<?=site_url()?>logout"><i
                                     class="mdi mdi-power text-danger"></i> Logout</a>
                         </div>
                     </div>

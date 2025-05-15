@@ -47,7 +47,7 @@ class Login extends CI_Controller {
     {
         $this->session->unset_userdata(['staff_id', 'staff_name', 'staff_email']);
         $this->session->sess_destroy();
-        redirect('staff');
+        redirect('/');
     }
 
  

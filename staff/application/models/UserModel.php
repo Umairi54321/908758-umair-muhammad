@@ -5,6 +5,11 @@ class UserModel extends CI_Model {
         return $this->db->get('users')->result();
     }
 
+    public function get_all_doctors() {
+    $result = $this->db->where('role', 'doctor')->get('users')->result();
+    return $result;
+}
+
     public function get_user($id) {
         return $this->db->get_where('users', ['id' => $id])->row();
     }

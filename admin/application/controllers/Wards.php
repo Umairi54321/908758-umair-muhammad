@@ -18,7 +18,7 @@ class Wards extends CI_Controller {
     }
 
     public function fetch_all() {
-        $wards = $this->Ward_model->get_all();
+        $wards = $this->WardModel->get_all();
         echo json_encode(['data' => $wards]);
     }
 
@@ -29,15 +29,15 @@ class Wards extends CI_Controller {
         ];
         $id = $this->input->post('id');
         if ($id) {
-            $this->Ward_model->update($id, $data);
+            $this->WardModel->update($id, $data);
         } else {
-            $this->Ward_model->insert($data);
+            $this->WardModel->insert($data);
         }
         echo json_encode(['status' => true, 'message' => 'Saved successfully']);
     }
 
     public function delete($id) {
-        $this->Ward_model->delete($id);
+        $this->WardModel->delete($id);
         echo json_encode(['status' => true, 'message' => 'Deleted successfully']);
     }
 
@@ -49,20 +49,20 @@ class Wards extends CI_Controller {
         ];
 
         // Check if bed is already taken
-        if ($this->Ward_assignments_model->is_bed_taken($data['ward_id'], $data['bed_number'])) {
+        if ($this->WardAssignmentsModel->is_bed_taken($data['ward_id'], $data['bed_number'])) {
             echo json_encode(['status' => false, 'message' => 'This bed is already assigned.']);
             return;
         }
 
-        $this->Ward_assignments_model->insert($data);
+        $this->WardAssignmentsModel->insert($data);
         echo json_encode(['status' => true, 'message' => 'Patient assigned successfully']);
     }
 
     public function get_patients() {
-        echo json_encode(['data' => $this->Patient_model->get_all()]);
+        echo json_encode(['data' => $this->PatientModel->get_all_patients()]);
     }
 
     public function get_ward_assignments() {
-        echo json_encode(['data' => $this->Ward_assignments_model->get_all_with_details()]);
+        echo json_encode(['data' => $this->WardAssignmentsModel->get_all_with_details()]);
     }
 }

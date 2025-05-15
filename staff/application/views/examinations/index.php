@@ -116,7 +116,7 @@ function loadExamFormDropdowns() {
         $('#examPatientSelect').html(options);
     });
 
-    $.getJSON('api/doctor/list', function(res) {
+    $.getJSON('users/get_doctors_api', function(res) {
         let options = '<option value="">Select</option>';
         res.data.forEach(d => options += `<option value="${d.id}">${d.name}</option>`);
         $('#examDoctorSelect').html(options);

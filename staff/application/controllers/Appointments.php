@@ -5,43 +5,37 @@ class Appointments extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('AppointmentsModel-');
+        $this->load->model('AppointmentsModel');
+        $this->load->model('PatientModel');
         if (!$this->session->userdata('admin_id')) {
             redirect('/'); 
         }
     }
 
     public function index() {
-        $this->load->adminTemplate('appointments/index', $data);
+        $staff_id = $this->session->userdata('staff_id');
+        $data['upcoming'] = $this->AppointmentsModel->get_appointments($staff_id, 'upcoming');
+        $data['past'] = $this->AppointmentsModel->get_appointments($staff_id, 'past');
+        $this->load->Template('appointments/index', $data);
     }
 
-    public function fetch_all() {
-        echo json_encode([
-            'status' => true,
-            'data' => $this->AppointmentsModel->get_all()
-        ]);
-    }
-
-    public function save() {
-        $data = [
-            'patient_id' => $this->input->post('patient_id'),
-            'doctor_id' => $this->input->post('doctor_id'),
-            'appointment_date' => $this->input->post('appointment_date'),
-            'appointment_time' => $this->input->post('appointment_time'),
-            'notes' => $this->input->post('notes'),
-            'status' => $this->input->post('status') ?? 'scheduled'
-        ];
+    public function update_status() {
         $id = $this->input->post('id');
-        if ($id) {
-            $this->AppointmentsModel->update($id, $data);
-        } else {
-            $this->AppointmentsModel->insert($data);
-        }
-        echo json_encode(['status' => true, 'message' => 'Appointment saved']);
+        $status = $this->input->post('status');
+        $this->AppointmentsModel->update_status($id, $status);
+        echo json_encode(['status' => 'updated']);
     }
 
-    public function delete($id) {
-        $this->AppointmentsModel->delete($id);
-        echo json_encode(['status' => true, 'message' => 'Appointment cancelled']);
+    public function add_notes() {
+        $id = $this->input->post('id');
+        $notes = $this->input->post('notes');
+        $this->AppointmentsModel->add_notes($id, $notes);
+        echo json_encode(['status' => 'notes added']);
+    }
+
+    public function get_appointment($id) {
+        $appointment = $this->AppointmentsModel->get_appointment($id);
+        $patient = $this->PatientModel->get_patient($appointment['patient_id']);
+        echo json_encode(['appointment' => $appointment, 'patient' => $patient]);
     }
 }

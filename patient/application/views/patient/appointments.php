@@ -5,19 +5,19 @@
             <h4 class="mb-4">Patient Panel</h4>
             <ul class="nav flex-column">
                 <li class="nav-item mb-2">
-                    <a class="nav-link text-white" href="<?= base_url('patient/dashboard') ?>">Dashboard</a>
+                    <a class="nav-link text-white" href="<?= base_url('dashboard') ?>">Dashboard</a>
                 </li>
                 <li class="nav-item mb-2">
-                    <a class="nav-link text-white" href="<?= base_url('patient/appointments') ?>">Appointments</a>
+                    <a class="nav-link text-white" href="<?= base_url('appointments') ?>">Appointments</a>
                 </li>
                 <li class="nav-item mb-2">
-                    <a class="nav-link text-white" href="<?= base_url('patient/examination-results') ?>">Examination Results</a>
+                    <a class="nav-link text-white" href="<?= base_url('examination-results') ?>">Examination Results</a>
                 </li>
                 <li class="nav-item mb-2">
-                    <a class="nav-link text-white" href="<?= base_url('patient/ward-assignment') ?>">Ward Assignment</a>
+                    <a class="nav-link text-white" href="<?= base_url('ward-assignment') ?>">Ward Assignment</a>
                 </li>
                 <li class="nav-item mb-2">
-                    <a class="nav-link text-white" href="<?= base_url('patient/logout') ?>">Logout</a>
+                    <a class="nav-link text-white" href="<?= base_url('logout') ?>">Logout</a>
                 </li>
             </ul>
         </div>
