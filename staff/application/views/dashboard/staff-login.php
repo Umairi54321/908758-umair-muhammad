@@ -29,11 +29,10 @@
                     <div class="card card-pages shadow-none mt-4">
                         <div class="card-body">
                             <div class="text-center mt-0 mb-3">
-                                <a href="" class="logo logo-admin">
-                                    <img src="<?=base_url();?>assets/images/logo-light.png" class="mt-3" alt=""
-                                        height="26"></a>
+                               <a href="" class="logo logo-admin text-primary">
+                                    Hospital Management System</a>
                                 <p class="text-muted w-75 mx-auto mb-4 mt-4">Enter your email address and password to
-                                    access dashboard panel.</p>
+                                    access Staff panel.</p>
                             </div>
                             
 

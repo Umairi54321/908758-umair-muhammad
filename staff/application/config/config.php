@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/hospital-mngt/staff';
+$config['base_url'] = 'http://localhost:8083/';
 /*
 |--------------------------------------------------------------------------
 | Index File
