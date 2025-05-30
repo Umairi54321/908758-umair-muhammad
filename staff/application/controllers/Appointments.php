@@ -14,10 +14,13 @@ class Appointments extends CI_Controller {
 
     public function index() {
         $staff_id = $this->session->userdata('staff_id');
-        $data['upcoming'] = $this->AppointmentsModel->get_appointments($staff_id, 'upcoming');
-        $data['past'] = $this->AppointmentsModel->get_appointments($staff_id, 'past');
+        $upcoming = $this->call_microservice("http://localhost:8084/appointment/get_by_staff/{$staff_id}/upcoming");
+        $past = $this->call_microservice("http://localhost:8084/appointment/get_by_staff/{$staff_id}/past");
+        $data['upcoming'] = $upcoming['data'] ?? [];
+        $data['past']     = $past['data'] ?? [];
         $this->load->Template('appointments/index', $data);
     }
+
 
     public function update_status() {
         $id = $this->input->post('id');
@@ -25,6 +28,15 @@ class Appointments extends CI_Controller {
         $this->AppointmentsModel->update_status($id, $status);
         echo json_encode(['status' => 'updated']);
     }
+
+    private function call_microservice($url) {
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        return json_decode($response, true);
+    }
+
 
     public function add_notes() {
         $id = $this->input->post('id');

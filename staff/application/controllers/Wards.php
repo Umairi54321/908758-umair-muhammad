@@ -12,9 +12,19 @@ class Wards extends CI_Controller {
     }
 
     public function index() {
-        $data['wards'] = $this->WardModel->get_ward_status();
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'http://localhost:8085/ward/get_ward_status');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        $result = json_decode($response, true);
+
+        $data['wards'] = isset($result['data']) ? $result['data'] : [];
+
         $this->load->Template('wards/index', $data);
     }
+
 
     public function assign_bed() {
         $ward_id = $this->input->post('ward_id');

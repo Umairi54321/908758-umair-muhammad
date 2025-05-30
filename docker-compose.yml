@@ -37,6 +37,30 @@ services:
     networks:
       - app-net
 
+  appointment-service:
+    build: ./services/appointment-service
+    container_name: appointment-service
+    ports:
+      - "8084:80"
+    volumes:
+      - ./services/appointment-service:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - app-net
+
+  ward-service:
+    build: ./services/ward-service
+    container_name: ward-service
+    ports:
+      - "8085:80"
+    volumes:
+      - ./services/ward-service:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - app-net
+
   db:
     image: mysql:5.7
     container_name: mysql-db

@@ -55,9 +55,20 @@ class Patient extends CI_Controller {
     }
 
     public function appointments() {
-        $data['appointments'] = $this->PatientModel->get_appointments($this->session->userdata('patient_id'));
+        $patient_id = $this->session->userdata('patient_id');
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "http://localhost:8084/appointment/get_by_patient/$patient_id");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        $result = json_decode($response, true);
+
+        $data['appointments'] = isset($result['data']) ? $result['data'] : [];
+
         $this->load->Template('patient/appointments', $data);
     }
+
 
     public function examination_results() {
         $data['results'] = $this->PatientModel->get_examination_results($this->session->userdata('patient_id'));
@@ -65,9 +76,21 @@ class Patient extends CI_Controller {
     }
 
     public function ward_assignment() {
-        $data['ward_assignment'] = $this->PatientModel->get_ward_assignment($this->session->userdata('patient_id'));
+        $patient_id = $this->session->userdata('patient_id');
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "http://localhost:8085/ward/get_patient_assignment/{$patient_id}");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        $result = json_decode($response, true);
+
+        $data['ward_assignment'] = isset($result['data']) ? $result['data'] : null;
+
         $this->load->Template('patient/ward_assignment', $data);
     }
+
 
     public function logout() {
         $this->session->unset_userdata('patient_id');

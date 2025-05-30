@@ -141,13 +141,15 @@
 
 
  <script>
+const WARD_API = "http://localhost:8085/ward";
+
 function fetchWards() {
-    $.getJSON('wards/fetch_all', function(res) {
+    $.getJSON(`${WARD_API}/fetch_all`, function(res) {
         let rows = '';
         let wardOptions = '<option value="">Select</option>';
         res.data.forEach(w => {
             rows += `<tr><td>${w.name}</td><td>${w.total_beds}</td>
-        <td><button class="btn btn-sm btn-danger" onclick="deleteWard(${w.id})">Delete</button></td></tr>`;
+                <td><button class="btn btn-sm btn-danger" onclick="deleteWard(${w.id})">Delete</button></td></tr>`;
             wardOptions += `<option value="${w.id}">${w.name}</option>`;
         });
         $('#wardTable tbody').html(rows);
@@ -166,11 +168,11 @@ function fetchPatients() {
 }
 
 function fetchAssignments() {
-    $.getJSON('wards/get_ward_assignments', function(res) {
+    $.getJSON(`${WARD_API}/get_ward_assignments`, function(res) {
         let rows = '';
         res.data.forEach(a => {
             rows += `<tr><td>${a.first_name} ${a.last_name}</td>
-        <td>${a.ward_name}</td><td>${a.bed_number}</td><td>${a.assigned_at}</td></tr>`;
+                <td>${a.ward_name}</td><td>${a.bed_number}</td><td>${a.assigned_at}</td></tr>`;
         });
         $('#assignmentTable tbody').html(rows);
     });
@@ -178,7 +180,7 @@ function fetchAssignments() {
 
 $('#wardForm').submit(function(e) {
     e.preventDefault();
-    $.post('wards/save', $(this).serialize(), function(res) {
+    $.post(`${WARD_API}/save`, $(this).serialize(), function(res) {
         alert(res.message);
         $('#wardModal').modal('hide');
         fetchWards();
@@ -187,7 +189,7 @@ $('#wardForm').submit(function(e) {
 
 $('#assignForm').submit(function(e) {
     e.preventDefault();
-    $.post('wards/assign_patient', $(this).serialize(), function(res) {
+    $.post(`${WARD_API}/assign_patient`, $(this).serialize(), function(res) {
         alert(res.message);
         if (res.status) fetchAssignments();
     }, 'json');
@@ -195,7 +197,7 @@ $('#assignForm').submit(function(e) {
 
 function deleteWard(id) {
     if (confirm("Delete this ward?")) {
-        $.get('wards/delete/' + id, function(res) {
+        $.get(`${WARD_API}/delete/` + id, function(res) {
             alert(res.message);
             fetchWards();
         }, 'json');

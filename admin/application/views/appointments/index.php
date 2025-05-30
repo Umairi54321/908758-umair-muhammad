@@ -105,12 +105,13 @@
  <!-- content -->
 
 
+<script>
+const APPOINTMENT_API_URL = "http://localhost:8084/appointment";
 
- <script>
 function loadPatientsAndDoctors() {
   $.getJSON('patients/get_patients_api', function(res) {
     let options = '<option value="">Select</option>';
-    res.data.forEach(p => options += `<option value="${p.id}">${p.first_name}${p.last_name}</option>`);
+    res.data.forEach(p => options += `<option value="${p.id}">${p.first_name} ${p.last_name}</option>`);
     $('#patientSelect').html(options);
   });
 
@@ -125,7 +126,7 @@ $('#appointmentModal').on('show.bs.modal', loadPatientsAndDoctors);
 
 $('#appointmentForm').submit(function(e) {
   e.preventDefault();
-  $.post('appointments/save', $(this).serialize(), function(res) {
+  $.post(`${APPOINTMENT_API_URL}/save`, $(this).serialize(), function(res) {
     alert(res.message);
     $('#appointmentModal').modal('hide');
     fetchAppointments();
@@ -133,7 +134,7 @@ $('#appointmentForm').submit(function(e) {
 });
 
 function fetchAppointments() {
-  $.getJSON('appointments/fetch_all', function(res) {
+  $.getJSON(`${APPOINTMENT_API_URL}/fetch_all`, function(res) {
     let rows = '';
     res.data.forEach(a => {
       rows += `<tr>
@@ -151,7 +152,7 @@ function fetchAppointments() {
 
 function cancelAppointment(id) {
   if (confirm("Cancel this appointment?")) {
-    $.get('appointments/delete/' + id, function(res) {
+    $.get(`${APPOINTMENT_API_URL}/delete/${id}`, function(res) {
       alert(res.message);
       fetchAppointments();
     }, 'json');
@@ -159,5 +160,5 @@ function cancelAppointment(id) {
 }
 
 $(document).ready(fetchAppointments);
+</script>
 
- </script>

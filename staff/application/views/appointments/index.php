@@ -148,23 +148,25 @@
 
 
  <script>
+const APPOINTMENT_API = 'http://localhost:8084/appointment/';
+
 $(function() {
-    // Accept
+    // Accept appointment
     $('.accept-btn').click(function() {
         var id = $(this).data('id');
         updateStatus(id, 'accepted');
     });
 
-    // Reject
+    // Reject appointment
     $('.reject-btn').click(function() {
         var id = $(this).data('id');
         updateStatus(id, 'rejected');
     });
 
-    // Show notes modal
+    // Show Add Notes Modal
     $('.notes-btn').click(function() {
         var id = $(this).data('id');
-        $.getJSON('<?= base_url("Appointments/get_appointment/") ?>' + id, function(data) {
+        $.getJSON(APPOINTMENT_API + 'get/' + id, function(data) {
             $('#appointment_id').val(data.appointment.id);
             $('#notes').val(data.appointment.notes || '');
             $('#patient_name').val(data.patient.name || 'Patient #' + data.appointment.patient_id);
@@ -172,18 +174,18 @@ $(function() {
         });
     });
 
-    // Save notes
+    // Submit Notes
     $('#notesForm').submit(function(e) {
         e.preventDefault();
-        $.post('<?= base_url("Appointments/add_notes") ?>', $(this).serialize(), function(res) {
+        $.post(APPOINTMENT_API + 'add_notes', $(this).serialize(), function(res) {
             $('#notesModal').modal('hide');
             location.reload();
         });
     });
 
-    // Update status
+    // Update status handler
     function updateStatus(id, status) {
-        $.post('<?= base_url("Appointments/update_status") ?>', {id: id, status: status}, function(res) {
+        $.post(APPOINTMENT_API + 'update_status', { id: id, status: status }, function(res) {
             location.reload();
         });
     }
