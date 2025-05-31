@@ -1899,3 +1899,239 @@ INFO - 2025-05-31 11:16:28 --> Helper loaded: cookie_helper
 INFO - 2025-05-31 11:16:28 --> Database Driver Class Initialized
 ERROR - 2025-05-31 11:16:31 --> Severity: Warning --> mysqli::real_connect(): php_network_getaddresses: getaddrinfo for db failed: No such host is known.  C:\xampp\htdocs\hospital-mngt\patient\system\database\drivers\mysqli\mysqli_driver.php 203
 ERROR - 2025-05-31 11:16:31 --> Severity: error --> Exception: php_network_getaddresses: getaddrinfo for db failed: No such host is known.  C:\xampp\htdocs\hospital-mngt\patient\system\database\drivers\mysqli\mysqli_driver.php 203
+INFO - 2025-05-31 17:35:01 --> Config Class Initialized
+INFO - 2025-05-31 17:35:01 --> Hooks Class Initialized
+DEBUG - 2025-05-31 17:35:03 --> UTF-8 Support Enabled
+INFO - 2025-05-31 17:35:03 --> Utf8 Class Initialized
+INFO - 2025-05-31 17:35:03 --> URI Class Initialized
+DEBUG - 2025-05-31 17:35:04 --> No URI present. Default controller set.
+INFO - 2025-05-31 17:35:04 --> Router Class Initialized
+INFO - 2025-05-31 17:35:05 --> Output Class Initialized
+INFO - 2025-05-31 17:35:06 --> Security Class Initialized
+DEBUG - 2025-05-31 17:35:07 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-05-31 17:35:07 --> Input Class Initialized
+INFO - 2025-05-31 17:35:07 --> Language Class Initialized
+INFO - 2025-05-31 17:35:07 --> Loader Class Initialized
+INFO - 2025-05-31 17:35:08 --> Helper loaded: url_helper
+INFO - 2025-05-31 17:35:08 --> Helper loaded: form_helper
+INFO - 2025-05-31 17:35:09 --> Helper loaded: cookie_helper
+INFO - 2025-05-31 17:35:09 --> Database Driver Class Initialized
+INFO - 2025-05-31 17:35:10 --> Session: Class initialized using 'files' driver.
+INFO - 2025-05-31 17:35:10 --> Form Validation Class Initialized
+INFO - 2025-05-31 17:35:10 --> Controller Class Initialized
+INFO - 2025-05-31 17:35:13 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/header_scripts.php
+INFO - 2025-05-31 17:35:14 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/header.php
+INFO - 2025-05-31 17:35:14 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\static_pages/home.php
+INFO - 2025-05-31 17:35:14 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/footer.php
+INFO - 2025-05-31 17:35:14 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/footer_scripts.php
+INFO - 2025-05-31 17:35:14 --> Final output sent to browser
+DEBUG - 2025-05-31 17:35:14 --> Total execution time: 14.4146
+INFO - 2025-05-31 17:40:44 --> Config Class Initialized
+INFO - 2025-05-31 17:40:44 --> Hooks Class Initialized
+DEBUG - 2025-05-31 17:40:44 --> UTF-8 Support Enabled
+INFO - 2025-05-31 17:40:44 --> Utf8 Class Initialized
+INFO - 2025-05-31 17:40:45 --> URI Class Initialized
+INFO - 2025-05-31 17:40:45 --> Router Class Initialized
+INFO - 2025-05-31 17:40:45 --> Output Class Initialized
+INFO - 2025-05-31 17:40:45 --> Security Class Initialized
+DEBUG - 2025-05-31 17:40:45 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-05-31 17:40:45 --> Input Class Initialized
+INFO - 2025-05-31 17:40:45 --> Language Class Initialized
+INFO - 2025-05-31 17:40:48 --> Loader Class Initialized
+INFO - 2025-05-31 17:40:48 --> Helper loaded: url_helper
+INFO - 2025-05-31 17:40:48 --> Helper loaded: form_helper
+INFO - 2025-05-31 17:40:48 --> Helper loaded: cookie_helper
+INFO - 2025-05-31 17:40:48 --> Database Driver Class Initialized
+INFO - 2025-05-31 17:40:48 --> Session: Class initialized using 'files' driver.
+INFO - 2025-05-31 17:40:48 --> Form Validation Class Initialized
+INFO - 2025-05-31 17:40:48 --> Controller Class Initialized
+INFO - 2025-05-31 17:40:49 --> Model "PatientModel" initialized
+INFO - 2025-05-31 17:40:49 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/header_scripts.php
+INFO - 2025-05-31 17:40:49 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/header.php
+INFO - 2025-05-31 17:40:50 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\patient/login.php
+INFO - 2025-05-31 17:40:50 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/footer.php
+INFO - 2025-05-31 17:40:50 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/footer_scripts.php
+INFO - 2025-05-31 17:40:50 --> Final output sent to browser
+DEBUG - 2025-05-31 17:40:50 --> Total execution time: 6.2667
+INFO - 2025-05-31 17:40:54 --> Config Class Initialized
+INFO - 2025-05-31 17:40:54 --> Hooks Class Initialized
+DEBUG - 2025-05-31 17:40:54 --> UTF-8 Support Enabled
+INFO - 2025-05-31 17:40:54 --> Utf8 Class Initialized
+INFO - 2025-05-31 17:40:54 --> URI Class Initialized
+INFO - 2025-05-31 17:40:54 --> Router Class Initialized
+INFO - 2025-05-31 17:40:54 --> Output Class Initialized
+INFO - 2025-05-31 17:40:54 --> Security Class Initialized
+DEBUG - 2025-05-31 17:40:54 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-05-31 17:40:54 --> Input Class Initialized
+INFO - 2025-05-31 17:40:54 --> Language Class Initialized
+INFO - 2025-05-31 17:40:54 --> Loader Class Initialized
+INFO - 2025-05-31 17:40:54 --> Helper loaded: url_helper
+INFO - 2025-05-31 17:40:54 --> Helper loaded: form_helper
+INFO - 2025-05-31 17:40:54 --> Helper loaded: cookie_helper
+INFO - 2025-05-31 17:40:54 --> Database Driver Class Initialized
+INFO - 2025-05-31 17:40:54 --> Session: Class initialized using 'files' driver.
+INFO - 2025-05-31 17:40:54 --> Form Validation Class Initialized
+INFO - 2025-05-31 17:40:54 --> Controller Class Initialized
+INFO - 2025-05-31 17:40:54 --> Model "PatientModel" initialized
+INFO - 2025-05-31 17:40:56 --> Config Class Initialized
+INFO - 2025-05-31 17:40:56 --> Hooks Class Initialized
+DEBUG - 2025-05-31 17:40:56 --> UTF-8 Support Enabled
+INFO - 2025-05-31 17:40:56 --> Utf8 Class Initialized
+INFO - 2025-05-31 17:40:56 --> URI Class Initialized
+INFO - 2025-05-31 17:40:56 --> Router Class Initialized
+INFO - 2025-05-31 17:40:56 --> Output Class Initialized
+INFO - 2025-05-31 17:40:56 --> Security Class Initialized
+DEBUG - 2025-05-31 17:40:56 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-05-31 17:40:56 --> Input Class Initialized
+INFO - 2025-05-31 17:40:56 --> Language Class Initialized
+INFO - 2025-05-31 17:40:56 --> Loader Class Initialized
+INFO - 2025-05-31 17:40:56 --> Helper loaded: url_helper
+INFO - 2025-05-31 17:40:56 --> Helper loaded: form_helper
+INFO - 2025-05-31 17:40:56 --> Helper loaded: cookie_helper
+INFO - 2025-05-31 17:40:56 --> Database Driver Class Initialized
+INFO - 2025-05-31 17:40:56 --> Session: Class initialized using 'files' driver.
+INFO - 2025-05-31 17:40:56 --> Form Validation Class Initialized
+INFO - 2025-05-31 17:40:56 --> Controller Class Initialized
+INFO - 2025-05-31 17:40:56 --> Model "PatientModel" initialized
+INFO - 2025-05-31 17:40:56 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/header_scripts.php
+INFO - 2025-05-31 17:40:56 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/header.php
+INFO - 2025-05-31 17:40:56 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\patient/dashboard.php
+INFO - 2025-05-31 17:40:56 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/footer.php
+INFO - 2025-05-31 17:40:56 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/footer_scripts.php
+INFO - 2025-05-31 17:40:56 --> Final output sent to browser
+DEBUG - 2025-05-31 17:40:56 --> Total execution time: 0.2351
+INFO - 2025-05-31 17:41:08 --> Config Class Initialized
+INFO - 2025-05-31 17:41:08 --> Hooks Class Initialized
+DEBUG - 2025-05-31 17:41:08 --> UTF-8 Support Enabled
+INFO - 2025-05-31 17:41:08 --> Utf8 Class Initialized
+INFO - 2025-05-31 17:41:08 --> URI Class Initialized
+INFO - 2025-05-31 17:41:08 --> Router Class Initialized
+INFO - 2025-05-31 17:41:08 --> Output Class Initialized
+INFO - 2025-05-31 17:41:08 --> Security Class Initialized
+DEBUG - 2025-05-31 17:41:08 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-05-31 17:41:08 --> Input Class Initialized
+INFO - 2025-05-31 17:41:08 --> Language Class Initialized
+INFO - 2025-05-31 17:41:08 --> Loader Class Initialized
+INFO - 2025-05-31 17:41:08 --> Helper loaded: url_helper
+INFO - 2025-05-31 17:41:08 --> Helper loaded: form_helper
+INFO - 2025-05-31 17:41:08 --> Helper loaded: cookie_helper
+INFO - 2025-05-31 17:41:08 --> Database Driver Class Initialized
+INFO - 2025-05-31 17:41:08 --> Session: Class initialized using 'files' driver.
+INFO - 2025-05-31 17:41:08 --> Form Validation Class Initialized
+INFO - 2025-05-31 17:41:08 --> Controller Class Initialized
+INFO - 2025-05-31 17:41:08 --> Model "PatientModel" initialized
+INFO - 2025-05-31 17:41:10 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/header_scripts.php
+INFO - 2025-05-31 17:41:10 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/header.php
+INFO - 2025-05-31 17:41:10 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\patient/appointments.php
+INFO - 2025-05-31 17:41:10 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/footer.php
+INFO - 2025-05-31 17:41:10 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/footer_scripts.php
+INFO - 2025-05-31 17:41:10 --> Final output sent to browser
+DEBUG - 2025-05-31 17:41:10 --> Total execution time: 2.4643
+INFO - 2025-05-31 17:41:34 --> Config Class Initialized
+INFO - 2025-05-31 17:41:34 --> Hooks Class Initialized
+DEBUG - 2025-05-31 17:41:34 --> UTF-8 Support Enabled
+INFO - 2025-05-31 17:41:34 --> Utf8 Class Initialized
+INFO - 2025-05-31 17:41:34 --> URI Class Initialized
+INFO - 2025-05-31 17:41:34 --> Router Class Initialized
+INFO - 2025-05-31 17:41:34 --> Output Class Initialized
+INFO - 2025-05-31 17:41:34 --> Security Class Initialized
+DEBUG - 2025-05-31 17:41:34 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-05-31 17:41:34 --> Input Class Initialized
+INFO - 2025-05-31 17:41:34 --> Language Class Initialized
+INFO - 2025-05-31 17:41:34 --> Loader Class Initialized
+INFO - 2025-05-31 17:41:34 --> Helper loaded: url_helper
+INFO - 2025-05-31 17:41:34 --> Helper loaded: form_helper
+INFO - 2025-05-31 17:41:34 --> Helper loaded: cookie_helper
+INFO - 2025-05-31 17:41:34 --> Database Driver Class Initialized
+INFO - 2025-05-31 17:41:34 --> Session: Class initialized using 'files' driver.
+INFO - 2025-05-31 17:41:34 --> Form Validation Class Initialized
+INFO - 2025-05-31 17:41:34 --> Controller Class Initialized
+INFO - 2025-05-31 17:41:34 --> Model "PatientModel" initialized
+INFO - 2025-05-31 17:41:37 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/header_scripts.php
+INFO - 2025-05-31 17:41:37 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/header.php
+INFO - 2025-05-31 17:41:37 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\patient/appointments.php
+INFO - 2025-05-31 17:41:37 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/footer.php
+INFO - 2025-05-31 17:41:37 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/footer_scripts.php
+INFO - 2025-05-31 17:41:37 --> Final output sent to browser
+DEBUG - 2025-05-31 17:41:37 --> Total execution time: 2.3609
+INFO - 2025-05-31 17:42:07 --> Config Class Initialized
+INFO - 2025-05-31 17:42:07 --> Hooks Class Initialized
+DEBUG - 2025-05-31 17:42:07 --> UTF-8 Support Enabled
+INFO - 2025-05-31 17:42:07 --> Utf8 Class Initialized
+INFO - 2025-05-31 17:42:07 --> URI Class Initialized
+INFO - 2025-05-31 17:42:07 --> Router Class Initialized
+INFO - 2025-05-31 17:42:07 --> Output Class Initialized
+INFO - 2025-05-31 17:42:07 --> Security Class Initialized
+DEBUG - 2025-05-31 17:42:07 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-05-31 17:42:07 --> Input Class Initialized
+INFO - 2025-05-31 17:42:07 --> Language Class Initialized
+INFO - 2025-05-31 17:42:07 --> Loader Class Initialized
+INFO - 2025-05-31 17:42:07 --> Helper loaded: url_helper
+INFO - 2025-05-31 17:42:07 --> Helper loaded: form_helper
+INFO - 2025-05-31 17:42:07 --> Helper loaded: cookie_helper
+INFO - 2025-05-31 17:42:07 --> Database Driver Class Initialized
+INFO - 2025-05-31 17:42:07 --> Session: Class initialized using 'files' driver.
+INFO - 2025-05-31 17:42:07 --> Form Validation Class Initialized
+INFO - 2025-05-31 17:42:07 --> Controller Class Initialized
+INFO - 2025-05-31 17:42:07 --> Model "PatientModel" initialized
+INFO - 2025-05-31 17:42:09 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/header_scripts.php
+INFO - 2025-05-31 17:42:09 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/header.php
+INFO - 2025-05-31 17:42:09 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\patient/appointments.php
+INFO - 2025-05-31 17:42:09 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/footer.php
+INFO - 2025-05-31 17:42:09 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/footer_scripts.php
+INFO - 2025-05-31 17:42:09 --> Final output sent to browser
+DEBUG - 2025-05-31 17:42:09 --> Total execution time: 2.3531
+INFO - 2025-05-31 17:47:45 --> Config Class Initialized
+INFO - 2025-05-31 17:47:45 --> Hooks Class Initialized
+DEBUG - 2025-05-31 17:47:45 --> UTF-8 Support Enabled
+INFO - 2025-05-31 17:47:45 --> Utf8 Class Initialized
+INFO - 2025-05-31 17:47:45 --> URI Class Initialized
+INFO - 2025-05-31 17:47:45 --> Router Class Initialized
+INFO - 2025-05-31 17:47:45 --> Output Class Initialized
+INFO - 2025-05-31 17:47:45 --> Security Class Initialized
+DEBUG - 2025-05-31 17:47:45 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-05-31 17:47:45 --> Input Class Initialized
+INFO - 2025-05-31 17:47:45 --> Language Class Initialized
+INFO - 2025-05-31 17:47:45 --> Loader Class Initialized
+INFO - 2025-05-31 17:47:45 --> Helper loaded: url_helper
+INFO - 2025-05-31 17:47:45 --> Helper loaded: form_helper
+INFO - 2025-05-31 17:47:45 --> Helper loaded: cookie_helper
+INFO - 2025-05-31 17:47:45 --> Database Driver Class Initialized
+INFO - 2025-05-31 17:47:45 --> Session: Class initialized using 'files' driver.
+INFO - 2025-05-31 17:47:45 --> Form Validation Class Initialized
+INFO - 2025-05-31 17:47:45 --> Controller Class Initialized
+INFO - 2025-05-31 17:47:45 --> Model "PatientModel" initialized
+INFO - 2025-05-31 17:47:47 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/header_scripts.php
+INFO - 2025-05-31 17:47:47 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/header.php
+INFO - 2025-05-31 17:47:47 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\patient/appointments.php
+INFO - 2025-05-31 17:47:47 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/footer.php
+INFO - 2025-05-31 17:47:47 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/footer_scripts.php
+INFO - 2025-05-31 17:47:47 --> Final output sent to browser
+DEBUG - 2025-05-31 17:47:47 --> Total execution time: 2.3661
+INFO - 2025-05-31 17:49:34 --> Config Class Initialized
+INFO - 2025-05-31 17:49:34 --> Hooks Class Initialized
+DEBUG - 2025-05-31 17:49:34 --> UTF-8 Support Enabled
+INFO - 2025-05-31 17:49:34 --> Utf8 Class Initialized
+INFO - 2025-05-31 17:49:34 --> URI Class Initialized
+INFO - 2025-05-31 17:49:34 --> Router Class Initialized
+INFO - 2025-05-31 17:49:34 --> Output Class Initialized
+INFO - 2025-05-31 17:49:34 --> Security Class Initialized
+DEBUG - 2025-05-31 17:49:34 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-05-31 17:49:34 --> Input Class Initialized
+INFO - 2025-05-31 17:49:34 --> Language Class Initialized
+INFO - 2025-05-31 17:49:34 --> Loader Class Initialized
+INFO - 2025-05-31 17:49:34 --> Helper loaded: url_helper
+INFO - 2025-05-31 17:49:34 --> Helper loaded: form_helper
+INFO - 2025-05-31 17:49:34 --> Helper loaded: cookie_helper
+INFO - 2025-05-31 17:49:34 --> Database Driver Class Initialized
+INFO - 2025-05-31 17:49:34 --> Session: Class initialized using 'files' driver.
+INFO - 2025-05-31 17:49:34 --> Form Validation Class Initialized
+INFO - 2025-05-31 17:49:34 --> Controller Class Initialized
+INFO - 2025-05-31 17:49:34 --> Model "PatientModel" initialized
+INFO - 2025-05-31 17:49:36 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/header_scripts.php
+INFO - 2025-05-31 17:49:36 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/header.php
+INFO - 2025-05-31 17:49:36 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\patient/appointments.php
+INFO - 2025-05-31 17:49:36 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/footer.php
+INFO - 2025-05-31 17:49:36 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/footer_scripts.php
+INFO - 2025-05-31 17:49:36 --> Final output sent to browser
+DEBUG - 2025-05-31 17:49:36 --> Total execution time: 2.6063

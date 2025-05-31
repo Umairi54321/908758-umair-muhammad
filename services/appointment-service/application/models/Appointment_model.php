@@ -39,6 +39,12 @@ class Appointment_model extends CI_Model {
         return $this->db->get_where('appointments', ['id' => $id])->row_array();
     }
 
+    public function get_all_doctors() {
+    $result = $this->db->where('role', 'doctor')->get('users')->result();
+    return $result;
+}
+
+
     public function get_all() {
         $this->db->select('a.*, p.first_name as patient_name, d.name as doctor_name');
         $this->db->from('appointments a');

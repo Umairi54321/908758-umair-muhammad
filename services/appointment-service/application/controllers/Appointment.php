@@ -20,6 +20,10 @@ class Appointment extends CI_Controller {
         echo json_encode(['data' => $data]);
     }
 
+    public function get_doctors_api() {
+        echo json_encode($this->Appointment_model->get_all_doctors());
+    }
+
     public function update_status() {
         $id = $this->input->post('id');
         $status = $this->input->post('status');
