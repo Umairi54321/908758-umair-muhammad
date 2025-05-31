@@ -1,5 +1,5 @@
 <?php
-class Examinations_model extends CI_Model {
+class ExaminationsModel extends CI_Model {
 
     public function get_by_patient($patient_id) {
         return $this->db->where('patient_id', $patient_id)

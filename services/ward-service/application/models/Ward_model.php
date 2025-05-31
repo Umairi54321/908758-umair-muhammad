@@ -69,9 +69,9 @@ class Ward_model extends CI_Model {
 
     public function get_patients_by_ward($ward_id) {
         return $this->db
-            ->select('wa.id as assignment_id, wa.bed_number, u.name as patient_name, u.email')
+            ->select('wa.id as assignment_id, wa.bed_number, u.first_name as patient_name, u.email')
             ->from('ward_assignments wa')
-            ->join('users u', 'u.id = wa.patient_id')
+            ->join('patients u', 'u.id = wa.patient_id')
             ->where('wa.ward_id', $ward_id)
             ->where('wa.discharged_at IS NULL')
             ->get()->result_array();

@@ -111,13 +111,13 @@ const APPOINTMENT_API_URL = "http://localhost:8084/appointment";
 function loadPatientsAndDoctors() {
   $.getJSON('patients/get_patients_api', function(res) {
     let options = '<option value="">Select</option>';
-    res.data.forEach(p => options += `<option value="${p.id}">${p.first_name} ${p.last_name}</option>`);
+    res.forEach(p => options += `<option value="${p.id}">${p.first_name} ${p.last_name}</option>`);
     $('#patientSelect').html(options);
   });
 
   $.getJSON('users/get_doctors_api', function(res) {
     let options = '<option value="">Select</option>';
-    res.data.forEach(d => options += `<option value="${d.id}">${d.name}</option>`);
+    res.forEach(d => options += `<option value="${d.id}">${d.name}</option>`);
     $('#doctorSelect').html(options);
   });
 }

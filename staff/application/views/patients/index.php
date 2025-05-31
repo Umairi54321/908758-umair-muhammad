@@ -21,15 +21,7 @@
          </div>
 
          <div class="row">
-             <div class="col-12">
-                 <div class="card">
-                     <div class="card-body">
-                         <form id="searchForm" class="mb-3">
-                             <input type="text" name="term" class="form-control" placeholder="Search patients...">
-                         </form>
-                     </div>
-                 </div>
-             </div>
+             
              <div class="col-md-12">
                  <ul class="list-group" id="patientList">
                      <?php foreach ($patients as $p): ?>

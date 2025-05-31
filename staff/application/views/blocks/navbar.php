@@ -7,8 +7,7 @@
         <!-- LOGO -->
         <div class="topbar-left">
             <a href="<?=base_url()?>" class="logo">
-                <img src="<?=base_url()?>assets/images/logo-light.png" class="logo-lg" alt="" height="22">
-                <img src="<?=base_url()?>assets/images/logo-sm.png" class="logo-sm" alt="" height="24">
+               <h1 class='text-white'>HMS</h1>
             </a>
         </div>
 

@@ -169,7 +169,7 @@ $(function() {
         $.getJSON(APPOINTMENT_API + 'get/' + id, function(data) {
             $('#appointment_id').val(data.appointment.id);
             $('#notes').val(data.appointment.notes || '');
-            $('#patient_name').val(data.patient.name || 'Patient #' + data.appointment.patient_id);
+            $('#patient_name').val('Patient #' + data.appointment.patient_id);
             $('#notesModal').modal('show');
         });
     });

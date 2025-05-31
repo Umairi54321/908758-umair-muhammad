@@ -112,13 +112,13 @@
 function loadExamFormDropdowns() {
     $.getJSON('patients/get_patients_api', function(res) {
         let options = '<option value="">Select</option>';
-        res.data.forEach(p => options += `<option value="${p.id}">${p.first_name}</option>`);
+        res.forEach(p => options += `<option value="${p.id}">${p.first_name}</option>`);
         $('#examPatientSelect').html(options);
     });
 
     $.getJSON('users/get_doctors_api', function(res) {
         let options = '<option value="">Select</option>';
-        res.data.forEach(d => options += `<option value="${d.id}">${d.name}</option>`);
+        res.forEach(d => options += `<option value="${d.id}">${d.name}</option>`);
         $('#examDoctorSelect').html(options);
     });
 }
@@ -139,7 +139,7 @@ function fetchExaminations() {
         let rows = '';
         res.data.forEach(e => {
             rows += `<tr>
-        <td>${e.patient_name}</td>
+        <td>${e.first_name}</td>
         <td>${e.doctor_name}</td>
         <td>${e.exam_type}</td>
         <td>${e.exam_date}</td>

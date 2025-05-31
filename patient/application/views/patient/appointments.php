@@ -26,7 +26,7 @@
         <div class="col-md-9 col-lg-10 p-4">
             <h2 class="mb-4">Your Appointments</h2>
 
-            <div class="card shadow-sm">
+            <div class="shadow-sm">
                 <div class="card-header bg-primary text-white">
                     <h5 class="mb-0">Upcoming Appointments</h5>
                 </div>
@@ -60,7 +60,7 @@
                                             <?php elseif ($appointment->status == 'Completed'): ?>
                                                 <span class="badge badge-success">Completed</span>
                                             <?php else: ?>
-                                                <span class="badge badge-danger">Cancelled</span>
+                                                <span class="badge badge-danger"><?=$appointment->status?></span>
                                             <?php endif; ?>
                                         </td>
                                     </tr>

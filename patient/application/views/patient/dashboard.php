@@ -26,7 +26,7 @@
         <div class="col-md-9 col-lg-10 p-4">
             <h2 class="mb-4">Welcome, <?= $patient->first_name . ' ' . $patient->last_name ?> 👋</h2>
 
-            <div class="card shadow-sm">
+            <div class="shadow-sm">
                 <div class="card-header bg-primary text-white">
                     <h5 class="mb-0">Your Details</h5>
                 </div>

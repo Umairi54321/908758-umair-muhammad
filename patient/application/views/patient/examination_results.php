@@ -26,7 +26,7 @@
         <div class="col-md-9 col-lg-10 p-4">
             <h2 class="mb-4">Your Examination Results</h2>
 
-            <div class="card shadow-sm">
+            <div class="shadow-sm">
                 <div class="card-header bg-primary text-white">
                     <h5 class="mb-0">Examination Results</h5>
                 </div>

@@ -27,10 +27,10 @@
         <li class='dropdown'>
           <a href='#' >Patients <i class='fa fa-angle-down' aria-hidden='true'></i></a>
           <div class='dropdown-content'>
-            <a href="<?=base_ur()?>dashboard">Dashboard</a>
-            <a href='<?=base_ur()?>appointments'>Appointments</a>
-            <a href='<?=base_ur()?>ward-assignment'>Ward Assignment</a>
-               <a href='<?=base_ur()?>examination-results'>Examination Results</a>
+            <a href="<?=base_url()?>dashboard">Dashboard</a>
+            <a href='<?=base_url()?>appointments'>Appointments</a>
+            <a href='<?=base_url()?>ward-assignment'>Ward Assignment</a>
+               <a href='<?=base_url()?>examination-results'>Examination Results</a>
                <a href='<?=base_url()?>logout'>Logout</a>
           </div>
         </li>
@@ -68,17 +68,7 @@
       <?php
        if ($this->session->userdata('patient_id')) {
         ?>
-                
-      <div class='dropdown_menu'>
-        <img src='$profile_pic' alt=''>
-        <button><i class='fa fa-angle-down' aria-hidden='true'></i></button>
-        <div class='dropdown-body'>
-        <p><img src='<?=base_url()?>"assets/images/default-user-image.png' alt=''></p>
-        <a href="<?=base_ur()?>dashboard">Dashboard</a>
-        <a href='<?=base_ur()?>appointments'>Appointments</a>
-        <a href='<?=base_url()?>logout'>Logout</a>
-   </div>
-      </div>
+            
       <?php
        }
        

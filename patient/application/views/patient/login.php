@@ -12,6 +12,13 @@
                 <form method="POST" action="<?= base_url('login') ?>">
                     <h3>Login</h3>
 
+                      <!-- Success Message -->
+                    <?php if ($this->session->flashdata('success')): ?>
+                        <div class="alert alert-success">
+                            <?= $this->session->flashdata('success'); ?>
+                        </div>
+                    <?php endif; ?>
+
                     <!-- Flash Messages -->
                     <?php if ($this->session->flashdata('error')): ?>
                         <div class="alert alert-danger">
@@ -19,12 +26,6 @@
                         </div>
                     <?php endif; ?>
 
-                    <!-- Validation Errors -->
-                    <?php if (validation_errors()): ?>
-                        <div class="alert alert-danger">
-                            <?= validation_errors(); ?>
-                        </div>
-                    <?php endif; ?>
 
                     <div class="inputField-container">
                         <input type="email" placeholder="Email Address" name="email" value="<?= set_value('email') ?>" required>

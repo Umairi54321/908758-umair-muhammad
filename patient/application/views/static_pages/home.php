@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <form method="POST">
             <h2>
-                Search Doctor, Make an Appointment
+                Your Ultimate Health Assistant
             </h2>
             <p>
                 Discover the best doctors, clinic & hospital the city nearest to you.

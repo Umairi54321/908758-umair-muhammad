@@ -10,6 +10,7 @@ class Patient extends CI_Controller {
 
     public function register() {
         if ($this->input->post()) {
+            
                 $data = [
                     'first_name' => $this->input->post('first_name'),
                     'last_name'  => $this->input->post('last_name'),
@@ -20,6 +21,7 @@ class Patient extends CI_Controller {
                     'dob'        => $this->input->post('dob'),
                     'address'    => $this->input->post('address')
                 ];
+                
                 $this->PatientModel->register($data);
                 $this->session->set_flashdata('success', 'Registration successful. Please login.');
                 redirect('login');
@@ -32,9 +34,9 @@ class Patient extends CI_Controller {
         if ($this->input->post()) {
                 $email = $this->input->post('email');
                 $password = $this->input->post('password');
-    
-                $patient = $this->PatientModel->getByEmail($email);
-    
+                
+                $patient = $this->PatientModel->get_by_email($email);
+
                 if ($patient && password_verify($password, $patient->password)) {
                     $this->session->set_userdata('patient_id', $patient->id);
                     $this->session->set_userdata('patient_name', $patient->first_name . ' ' . $patient->last_name);

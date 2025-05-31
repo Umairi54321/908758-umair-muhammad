@@ -19,12 +19,6 @@
                         </div>
                     <?php endif; ?>
 
-                    <!-- Validation Errors -->
-                    <?php if (validation_errors()): ?>
-                        <div class="alert alert-danger">
-                            <?= validation_errors(); ?>
-                        </div>
-                    <?php endif; ?>
 
                     <div class="inputField-container">
                         <input type="text" placeholder="First Name" name="first_name" value="<?= set_value('first_name') ?>" required>

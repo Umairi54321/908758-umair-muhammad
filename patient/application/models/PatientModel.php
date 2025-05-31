@@ -9,7 +9,7 @@ class PatientModel extends CI_Model {
 
     // Register new patient
     public function register($data) {
-        return $this->db->insert('patients', $data);
+      $this->db->insert('patients', $data);
     }
 
     // Get patient by email (used for login)
@@ -37,11 +37,11 @@ class PatientModel extends CI_Model {
     // Get examination results for patient
     public function get_examination_results($patient_id) {
         return $this->db
-                    ->select('medical_examinations.*, doctors.name as doctor_name')
-                    ->from('medical_examinations')
-                    ->join('doctors', 'doctors.id = medical_examinations.doctor_id', 'left')
-                    ->where('medical_examinations.patient_id', $patient_id)
-                    ->order_by('medical_examinations.examination_date', 'DESC')
+                    ->select('examinations.*, doctors.name as doctor_name')
+                    ->from('examinations')
+                    ->join('doctors', 'doctors.id = examinations.doctor_id', 'left')
+                    ->where('examinations.patient_id', $patient_id)
+                    ->order_by('examinations.exam_date', 'DESC')
                     ->get()
                     ->result();
     }

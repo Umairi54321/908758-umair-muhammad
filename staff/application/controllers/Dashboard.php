@@ -13,9 +13,9 @@ class Dashboard extends CI_Controller {
     }
 
     public function index() {
-        $data['total_patients']     = $this->StaffModel->get_total_patients();
-        $data['total_wards']        = $this->StaffModel->get_total_wards();
-        $data['today_patients']     = $this->StaffModel->get_today_patients();
+        $data['total_patients'] = $this->StaffModel->get_total_patients();
+        $data['total_wards'] = $this->StaffModel->get_total_wards();
+        $data['today_patients'] = $this->StaffModel->get_today_patients();
         $this->load->Template('dashboard/index', $data);
     }
 }

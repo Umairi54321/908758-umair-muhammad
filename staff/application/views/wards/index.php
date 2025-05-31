@@ -10,13 +10,6 @@
                          <h4 class="page-title">Ward's</h4>
                      </div>
                  </div>
-                 <div class="col-md-4">
-                     <div class="page-title-box text-right">
-                         <button class="btn btn-primary" data-toggle="modal" data-target="#wardModal">+ Add
-                             Ward</button>
-
-                     </div>
-                 </div>
              </div>
          </div>
 

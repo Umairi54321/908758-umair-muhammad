@@ -107,7 +107,7 @@
     function loadDoctors() {
   $.getJSON("users/get_doctors_api", function(res) {
     let options = '<option value="">Select Doctor</option>';
-    res.data.forEach(doc => options += `<option value="${doc.id}">${doc.name}</option>`);
+    res.forEach(doc => options += `<option value="${doc.id}">${doc.name}</option>`);
     $('#emergencyDoctorSelect').html(options);
   });
 }
