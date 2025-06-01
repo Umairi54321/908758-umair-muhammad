@@ -15,14 +15,26 @@ class Ward extends CI_Controller {
     }
 
     public function save() {
-        $data = [
-            'name' => $this->input->post('name'),
-            'total_beds' => $this->input->post('total_beds')
-        ];
-        $id = $this->input->post('id');
-        $id ? $this->Ward_model->update($id, $data) : $this->Ward_model->insert($data);
-        echo json_encode(['status' => true, 'message' => 'Saved successfully']);
+    $name = $this->input->post('name');
+    $beds = $this->input->post('total_beds');
+    $id = $this->input->post('id');
+
+    if (!$name || !$beds) {
+        echo json_encode(['status' => false, 'message' => 'All fields are required']);
+        return;
     }
+
+    $data = ['name' => $name, 'total_beds' => $beds];
+    $success = $id 
+        ? $this->Ward_model->update($id, $data) 
+        : $this->Ward_model->insert($data);
+
+    echo json_encode([
+        'status' => $success ? true : false,
+        'message' => $success ? 'Saved successfully' : 'Operation failed'
+    ]);
+}
+
 
     public function delete($id) {
         $this->Ward_model->delete($id);

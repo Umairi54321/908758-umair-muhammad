@@ -66,12 +66,12 @@
                          <div class="form-group"><label>First Name</label><input type="text" name="first_name"
                                  class="form-control" required></div>
                          <div class="form-group"><label>Last Name</label><input type="text" name="last_name"
-                                 class="form-control"></div>
+                                 class="form-control" required></div>
                          <div class="form-group"><label>Phone</label><input type="text" name="phone"
-                                 class="form-control"></div>
+                                 class="form-control" required></div>
                          <div class="form-group">
                              <label>Triage Priority</label>
-                             <select name="triage_priority" class="form-control">
+                             <select name="triage_priority" class="form-control" required>
                                  <option value="">Select</option>
                                  <option value="low">Low</option>
                                  <option value="medium">Medium</option>
@@ -81,7 +81,7 @@
                          </div>
                          <div class="form-group">
                              <label>Assign Doctor</label>
-                             <select name="assigned_doctor_id" class="form-control" id="emergencyDoctorSelect"></select>
+                             <select name="assigned_doctor_id" class="form-control" id="emergencyDoctorSelect" required></select>
                          </div>
                      </div>
                      <div class="modal-footer">

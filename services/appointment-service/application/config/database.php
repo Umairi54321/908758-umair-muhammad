@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'db',
-    'username' => 'user',
-	'password' => 'password',
-	'database' => 'hospital_manage',
+	'hostname' => 'db-appointment',
+	'username' => 'appointment_user',
+	'password' => 'appointment_pass',
+	'database' => 'appointment_db',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

@@ -19,6 +19,13 @@
                         </div>
                     <?php endif; ?>
 
+                    <!-- Flash Messages -->
+                    <?php if ($this->session->flashdata('error')): ?>
+                        <div class="alert alert-danger">
+                            <?= $this->session->flashdata('error'); ?>
+                        </div>
+                    <?php endif; ?>
+
 
                     <div class="inputField-container">
                         <input type="text" placeholder="First Name" name="first_name" value="<?= set_value('first_name') ?>" required>
@@ -37,11 +44,11 @@
                     </div>
 
                     <div class="inputField-container">
-                        <input type="tel" placeholder="Mobile Number" name="phone" value="<?= set_value('phone') ?>">
+                        <input type="tel" placeholder="Mobile Number" name="phone" value="<?= set_value('phone') ?>" required>
                     </div>
 
                     <div class="inputField-container">
-                        <input type="text" placeholder="Address" name="address" value="<?= set_value('address') ?>">
+                        <input type="text" placeholder="Address" name="address" value="<?= set_value('address') ?>" required>
                     </div>
 
                     <div class="inputField-container">

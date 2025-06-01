@@ -44,23 +44,6 @@ INSERT INTO `admins` (`id`, `name`, `email`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `appointments`
---
-
-CREATE TABLE `appointments` (
-  `id` int(11) NOT NULL,
-  `patient_id` int(11) NOT NULL,
-  `doctor_id` int(11) NOT NULL,
-  `appointment_date` date NOT NULL,
-  `appointment_time` time NOT NULL,
-  `status` enum('pending','accepted','rejected','completed') DEFAULT 'pending',
-  `notes` text DEFAULT NULL,
-  `created_at` datetime DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `doctors`
 --
 
@@ -147,33 +130,6 @@ CREATE TABLE `users` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wards`
---
-
-CREATE TABLE `wards` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `total_beds` int(11) NOT NULL,
-  `created_at` datetime DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ward_assignments`
---
-
-CREATE TABLE `ward_assignments` (
-  `id` int(11) NOT NULL,
-  `ward_id` int(11) NOT NULL,
-  `staff_id` int(255) NOT NULL,
-  `patient_id` int(11) NOT NULL,
-  `bed_number` int(11) NOT NULL,
-  `assigned_at` datetime DEFAULT current_timestamp(),
-  `discharged_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
 -- Indexes for dumped tables
 --
 
@@ -181,21 +137,13 @@ CREATE TABLE `ward_assignments` (
 -- Indexes for table `admins`
 --
 ALTER TABLE `admins`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`);
-
---
--- Indexes for table `appointments`
---
-ALTER TABLE `appointments`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `doctors`
 --
 ALTER TABLE `doctors`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `emergency_patients`
@@ -213,27 +161,14 @@ ALTER TABLE `examinations`
 -- Indexes for table `patients`
 --
 ALTER TABLE `patients`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`);
-
---
--- Indexes for table `wards`
---
-ALTER TABLE `wards`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `ward_assignments`
---
-ALTER TABLE `ward_assignments`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -244,12 +179,6 @@ ALTER TABLE `ward_assignments`
 --
 ALTER TABLE `admins`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `appointments`
---
-ALTER TABLE `appointments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `doctors`
@@ -279,18 +208,6 @@ ALTER TABLE `patients`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `wards`
---
-ALTER TABLE `wards`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `ward_assignments`
---
-ALTER TABLE `ward_assignments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 

@@ -21,13 +21,30 @@ class Patients extends CI_Controller {
     }
     
     public function add_patient_api() {
-        $data = $this->input->post();
-        $data['password'] = password_hash($this->input->post("password"), PASSWORD_BCRYPT);
+    $data = $this->input->post();
+    $email = $data['email'];
+
+    // Check if email already exists
+    if ($this->PatientModel->get_by_email($email)) {
         echo json_encode([
-            'status' => $this->PatientModel->add_patient($data),
-            'message' => 'Patient added successfully'
+            'status' => false,
+            'message' => 'Email already exists'
         ]);
+        return;
     }
+
+    // Hash password
+    $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+
+    // Add patient
+    $this->PatientModel->add_patient($data);
+
+    echo json_encode([
+        'status' => true,
+        'message' => 'Patient added successfully'
+    ]);
+}
+
     
     public function update_patient_api($id) {
         $data = $this->input->post();

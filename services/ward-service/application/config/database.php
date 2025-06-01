@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'db',
-    'username' => 'user',
-	'password' => 'password',
-	'database' => 'hospital_manage',
+	'hostname' => 'db-ward',
+	'username' => 'ward_user',
+	'password' => 'ward_pass',
+	'database' => 'ward_db',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

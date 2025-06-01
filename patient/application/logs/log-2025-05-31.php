@@ -2135,3 +2135,21 @@ INFO - 2025-05-31 17:49:36 --> File loaded: C:\xampp\htdocs\hospital-mngt\patien
 INFO - 2025-05-31 17:49:36 --> File loaded: C:\xampp\htdocs\hospital-mngt\patient\application\views\blocks/footer_scripts.php
 INFO - 2025-05-31 17:49:36 --> Final output sent to browser
 DEBUG - 2025-05-31 17:49:36 --> Total execution time: 2.6063
+INFO - 2025-05-31 17:52:57 --> Config Class Initialized
+INFO - 2025-05-31 17:52:57 --> Hooks Class Initialized
+DEBUG - 2025-05-31 17:52:57 --> UTF-8 Support Enabled
+INFO - 2025-05-31 17:52:57 --> Utf8 Class Initialized
+INFO - 2025-05-31 17:52:57 --> URI Class Initialized
+INFO - 2025-05-31 17:52:57 --> Router Class Initialized
+INFO - 2025-05-31 17:52:57 --> Output Class Initialized
+INFO - 2025-05-31 17:52:57 --> Security Class Initialized
+DEBUG - 2025-05-31 17:52:57 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-05-31 17:52:57 --> Input Class Initialized
+INFO - 2025-05-31 17:52:57 --> Language Class Initialized
+INFO - 2025-05-31 17:52:57 --> Loader Class Initialized
+INFO - 2025-05-31 17:52:57 --> Helper loaded: url_helper
+INFO - 2025-05-31 17:52:57 --> Helper loaded: form_helper
+INFO - 2025-05-31 17:52:57 --> Helper loaded: cookie_helper
+INFO - 2025-05-31 17:52:57 --> Database Driver Class Initialized
+ERROR - 2025-05-31 17:53:00 --> Severity: Warning --> mysqli::real_connect(): php_network_getaddresses: getaddrinfo for db failed: No such host is known.  C:\xampp\htdocs\hospital-mngt\patient\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2025-05-31 17:53:00 --> Severity: error --> Exception: php_network_getaddresses: getaddrinfo for db failed: No such host is known.  C:\xampp\htdocs\hospital-mngt\patient\system\database\drivers\mysqli\mysqli_driver.php 203

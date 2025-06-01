@@ -60,9 +60,9 @@
                                 <td><?= date('Y-m-d', strtotime($appointment->appointment_date)) ?></td>
                                 <td><?= date('h:i A', strtotime($appointment->appointment_time)) ?></td>
                                 <td>
-                                    <?php if ($appointment->status == 'Pending'): ?>
+                                    <?php if ($appointment->status == 'pending'): ?>
                                     <span class="badge badge-warning">Pending</span>
-                                    <?php elseif ($appointment->status == 'Completed'): ?>
+                                    <?php elseif ($appointment->status == 'completed'): ?>
                                     <span class="badge badge-success">Completed</span>
                                     <?php else: ?>
                                     <span class="badge badge-danger"><?=$appointment->status?></span>
@@ -115,7 +115,7 @@
 
 <script>
 function loadDoctors() {
-    $.getJSON('http://localhost:8084/appointments/get_doctors_api', function(res) {
+    $.getJSON('http://localhost:8084/appointment/get_doctors_api', function(res) {
         let options = '<option value="">Select</option>';
         res.forEach(d => {
             options += `<option value="${d.id}">${d.name}</option>`;
@@ -132,7 +132,7 @@ $('#appointmentForm').submit(function(e) {
     const data = $(this).serializeArray();
     data.push({ name: 'patient_id', value: <?= $this->session->userdata('patient_id') ?> });
 
-    $.post('http://localhost:8084/appointments/save', data, function(res) {
+    $.post('http://localhost:8084/appointment/save', data, function(res) {
         alert(res.message);
         $('#appointmentModal').modal('hide');
         location.reload(); // Or fetch updated list via AJAX
@@ -142,7 +142,7 @@ $('#appointmentForm').submit(function(e) {
 // Cancel appointment
 function cancelAppointment(id) {
     if (confirm("Cancel this appointment?")) {
-        $.get('http://localhost:8084/appointments/delete/' + id, function(res) {
+        $.get('http://localhost:8084/appointment/delete/' + id, function(res) {
             alert(res.message);
             location.reload();
         }, 'json');

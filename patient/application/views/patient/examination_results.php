@@ -31,7 +31,7 @@
                     <h5 class="mb-0">Examination Results</h5>
                 </div>
                 <div class="card-body">
-                    <?php if (empty($examination_results)): ?>
+                    <?php if (empty($results)): ?>
                         <div class="alert alert-info" role="alert">
                             You have no examination results yet.
                         </div>
@@ -41,29 +41,23 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Examination Type</th>
-                                    <th scope="col">Result</th>
+                                    <th scope="col">Observation</th>
                                     <th scope="col">Doctor</th>
                                     <th scope="col">Examination Date</th>
-                                    <th scope="col">Status</th>
+                                    <th scope="col">Result</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $counter = 1; ?>
-                                <?php foreach ($examination_results as $result): ?>
+                                <?php $counter = 1;?>
+                                <?php foreach ($results as $result): ?>
                                     <tr>
                                         <th scope="row"><?= $counter++ ?></th>
-                                        <td><?= $result->examination_type ?></td>
-                                        <td><?= $result->result ?></td>
+                                        <td><?= $result->exam_type ?></td>
+                                        <td><?= $result->observations ?></td>
                                         <td><?= $result->doctor_name ?></td>
-                                        <td><?= date('Y-m-d', strtotime($result->examination_date)) ?></td>
+                                        <td><?= date('Y-m-d', strtotime($result->exam_date)) ?></td>
                                         <td>
-                                            <?php if ($result->status == 'Pending'): ?>
-                                                <span class="badge badge-warning">Pending</span>
-                                            <?php elseif ($result->status == 'Completed'): ?>
-                                                <span class="badge badge-success">Completed</span>
-                                            <?php else: ?>
-                                                <span class="badge badge-danger">Cancelled</span>
-                                            <?php endif; ?>
+                                            <?=$result->results?>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

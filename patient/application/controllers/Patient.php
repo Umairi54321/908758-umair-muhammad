@@ -9,26 +9,35 @@ class Patient extends CI_Controller {
     }
 
     public function register() {
-        if ($this->input->post()) {
-            
-                $data = [
-                    'first_name' => $this->input->post('first_name'),
-                    'last_name'  => $this->input->post('last_name'),
-                    'email'      => $this->input->post('email'),
-                    'password'   => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-                    'phone'      => $this->input->post('phone'),
-                    'gender'     => $this->input->post('gender'),
-                    'dob'        => $this->input->post('dob'),
-                    'address'    => $this->input->post('address')
-                ];
-                
-                $this->PatientModel->register($data);
-                $this->session->set_flashdata('success', 'Registration successful. Please login.');
-                redirect('login');
+    if ($this->input->post()) {
+
+        $email = $this->input->post('email');
+        $existing = $this->PatientModel->get_by_email($email);
+
+        if ($existing) {
+            $this->session->set_flashdata('error', 'Email already exists. Please try another.');
+            redirect('register');
         }
 
-        $this->load->Template('patient/register', $data);
+        $data = [
+            'first_name' => $this->input->post('first_name'),
+            'last_name'  => $this->input->post('last_name'),
+            'email'      => $email,
+            'password'   => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+            'phone'      => $this->input->post('phone'),
+            'gender'     => $this->input->post('gender'),
+            'dob'        => $this->input->post('dob'),
+            'address'    => $this->input->post('address')
+        ];
+
+        $this->PatientModel->register($data);
+        $this->session->set_flashdata('success', 'Registration successful. Please login.');
+        redirect('login');
     }
+
+    $this->load->Template('patient/register');
+}
+
 
     public function login() {
         if ($this->input->post()) {

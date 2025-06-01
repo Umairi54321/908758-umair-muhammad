@@ -5,10 +5,11 @@ class Appointment_model extends CI_Model {
 
     public function get_appointments_by_patient($patient_id) {
         return $this->db
-                    ->select('appointments.*, doctors.name as doctor_name, doctors.specialty')
+                    ->select('appointments.*, users.name as doctor_name')
                     ->from('appointments')
-                    ->join('doctors', 'doctors.id = appointments.doctor_id', 'left')
+                    ->join('users', 'users.id = appointments.doctor_id', 'left')
                     ->where('appointments.patient_id', $patient_id)
+                       ->where('users.role', 'doctor')
                     ->order_by('appointments.date', 'DESC')
                     ->get()->result();
     }

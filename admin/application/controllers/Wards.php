@@ -28,7 +28,7 @@ class Wards extends CI_Controller {
             'total_beds' => $this->input->post('total_beds')
         ];
         $id = $this->input->post('id');
-        if ($id) {
+        if ($id && !empty($id)) {
             $this->WardModel->update($id, $data);
         } else {
             $this->WardModel->insert($data);

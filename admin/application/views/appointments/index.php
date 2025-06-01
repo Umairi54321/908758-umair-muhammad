@@ -68,11 +68,11 @@
                          <input type="hidden" name="id">
                          <div class="form-group">
                              <label>Patient</label>
-                             <select name="patient_id" class="form-control" id="patientSelect"></select>
+                             <select name="patient_id" class="form-control" id="patientSelect" required></select>
                          </div>
                          <div class="form-group">
                              <label>Doctor</label>
-                             <select name="doctor_id" class="form-control" id="doctorSelect"></select>
+                             <select name="doctor_id" class="form-control" id="doctorSelect" required></select>
                          </div>
                          <div class="form-group">
                              <label>Date</label>

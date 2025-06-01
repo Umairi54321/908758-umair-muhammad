@@ -14,6 +14,11 @@ class PatientModel extends CI_Model {
         return $this->db->insert('patients', $data);
     }
 
+    public function get_by_email($email) {
+    return $this->db->get_where('patients', ['email' => $email])->row();
+}
+
+
     public function update_patient($id, $data) {
         return $this->db->where('id', $id)->update('patients', $data);
     }

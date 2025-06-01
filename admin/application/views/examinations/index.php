@@ -66,11 +66,11 @@
                          <input type="hidden" name="id">
                          <div class="form-group">
                              <label>Patient</label>
-                             <select name="patient_id" class="form-control" id="examPatientSelect"></select>
+                             <select name="patient_id" class="form-control" id="examPatientSelect" required></select>
                          </div>
                          <div class="form-group">
                              <label>Doctor</label>
-                             <select name="doctor_id" class="form-control" id="examDoctorSelect"></select>
+                             <select name="doctor_id" class="form-control" id="examDoctorSelect" required></select>
                          </div>
                          <div class="form-group">
                              <label>Exam Type</label>

@@ -77,6 +77,38 @@ services:
     networks:
       - app-net
 
+  db-appointment:
+    image: mysql:5.7
+    container_name: mysql-appointment
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: appointment_db
+      MYSQL_USER: appointment_user
+      MYSQL_PASSWORD: appointment_pass
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_appointment_data:/var/lib/mysql
+    networks:
+      - app-net
+
+  db-ward:
+    image: mysql:5.7
+    container_name: mysql-ward
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ward_db
+      MYSQL_USER: ward_user
+      MYSQL_PASSWORD: ward_pass
+    ports:
+      - "3308:3306"
+    volumes:
+      - db_ward_data:/var/lib/mysql
+    networks:
+      - app-net
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
@@ -91,6 +123,8 @@ services:
 
 volumes:
   db_data:
+  db_appointment_data:
+  db_ward_data:
 
 networks:
   app-net:
