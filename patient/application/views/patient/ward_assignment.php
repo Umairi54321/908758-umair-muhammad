@@ -31,25 +31,27 @@
                     <h5 class="mb-0">Ward Assignment Details</h5>
                 </div>
                 <div class="card-body">
-                    <?php if (empty($ward_assignment)): ?>
+                    <?php if (!isset($ward_assignment)): ?>
                         <div class="alert alert-info" role="alert">
                             You have no ward assignment details.
                         </div>
                     <?php else: ?>
                         <table class="table table-striped">
                             <tbody>
+                                
                                 <tr>
                                     <th>Ward Name</th>
-                                    <td><?= $ward_assignment->ward_name ?></td>
+                                    <td><?= $ward_assignment['ward_name'] ?></td>
                                 </tr>
                                 <tr>
                                     <th>Assigned Date</th>
-                                    <td><?= date('Y-m-d', strtotime($ward_assignment->assigned_at)) ?></td>
+                                    <td><?= date('Y-m-d', strtotime($ward_assignment['assigned_at'])) ?></td>
                                 </tr>
                                 <tr>
                                     <th>Bed Number</th>
-                                    <td><?= $ward_assignment->bed_number ?></td>
+                                    <td><?= $ward_assignment['bed_number'] ?></td>
                                 </tr>
+                                
                             </tbody>
                         </table>
                     <?php endif; ?>

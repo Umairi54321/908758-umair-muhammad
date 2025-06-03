@@ -56,16 +56,16 @@
                             <?php foreach ($appointments as $appointment): ?>
                             <tr>
                                 <th scope="row"><?= $counter++ ?></th>
-                                <td><?= $appointment->doctor_name ?></td>
-                                <td><?= date('Y-m-d', strtotime($appointment->appointment_date)) ?></td>
-                                <td><?= date('h:i A', strtotime($appointment->appointment_time)) ?></td>
+                                <td><?= $appointment['doctor_name'] ?></td>
+                                <td><?= date('Y-m-d', strtotime($appointment['appointment_date'])) ?></td>
+                                <td><?= date('h:i A', strtotime($appointment['appointment_time'])) ?></td>
                                 <td>
-                                    <?php if ($appointment->status == 'pending'): ?>
+                                    <?php if ($appointment['status'] == 'pending'): ?>
                                     <span class="badge badge-warning">Pending</span>
-                                    <?php elseif ($appointment->status == 'completed'): ?>
+                                    <?php elseif ($appointment['status'] == 'completed'): ?>
                                     <span class="badge badge-success">Completed</span>
                                     <?php else: ?>
-                                    <span class="badge badge-danger"><?=$appointment->status?></span>
+                                    <span class="badge badge-danger"><?=$appointment['status']?></span>
                                     <?php endif; ?>
                                 </td>
                             </tr>

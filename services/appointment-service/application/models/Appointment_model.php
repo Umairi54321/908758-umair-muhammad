@@ -9,8 +9,8 @@ class Appointment_model extends CI_Model {
                     ->from('appointments')
                     ->join('users', 'users.id = appointments.doctor_id', 'left')
                     ->where('appointments.patient_id', $patient_id)
-                       ->where('users.role', 'doctor')
-                    ->order_by('appointments.date', 'DESC')
+                    ->where('users.role', 'doctor')
+                    ->order_by('appointments.appointment_date', 'DESC')
                     ->get()->result();
     }
 
