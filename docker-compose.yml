@@ -1,6 +1,8 @@
 version: '3.8'
 
 services:
+
+  # Admin Panel
   admin:
     build: ./admin
     container_name: admin-app
@@ -12,7 +14,9 @@ services:
       - db
     networks:
       - app-net
+    user: "www-data"
 
+  # Patient Panel
   patient:
     build: ./patient
     container_name: patient-app
@@ -24,7 +28,9 @@ services:
       - db
     networks:
       - app-net
+    user: "www-data"
 
+  # Staff Panel
   staff:
     build: ./staff
     container_name: staff-app
@@ -36,7 +42,9 @@ services:
       - db
     networks:
       - app-net
+    user: "www-data"
 
+  # Appointment Microservice
   appointment-service:
     build: ./services/appointment-service
     container_name: appointment-service
@@ -45,10 +53,12 @@ services:
     volumes:
       - ./services/appointment-service:/var/www/html
     depends_on:
-      - db
+      - db-appointment
     networks:
       - app-net
+    user: "www-data"
 
+  # Ward Microservice
   ward-service:
     build: ./services/ward-service
     container_name: ward-service
@@ -57,10 +67,12 @@ services:
     volumes:
       - ./services/ward-service:/var/www/html
     depends_on:
-      - db
+      - db-ward
     networks:
       - app-net
+    user: "www-data"
 
+  # Shared DB for main app
   db:
     image: mysql:5.7
     container_name: mysql-db
@@ -77,6 +89,7 @@ services:
     networks:
       - app-net
 
+  # DB for Appointment Microservice
   db-appointment:
     image: mysql:5.7
     container_name: mysql-appointment
@@ -86,13 +99,14 @@ services:
       MYSQL_DATABASE: appointment_db
       MYSQL_USER: appointment_user
       MYSQL_PASSWORD: appointment_pass
-    ports:
-      - "3307:3306"
     volumes:
       - db_appointment_data:/var/lib/mysql
+    ports:
+      - "3307:3306"
     networks:
       - app-net
 
+  # DB for Ward Microservice
   db-ward:
     image: mysql:5.7
     container_name: mysql-ward
@@ -102,13 +116,14 @@ services:
       MYSQL_DATABASE: ward_db
       MYSQL_USER: ward_user
       MYSQL_PASSWORD: ward_pass
-    ports:
-      - "3308:3306"
     volumes:
       - db_ward_data:/var/lib/mysql
+    ports:
+      - "3308:3306"
     networks:
       - app-net
 
+  # phpMyAdmin for DB access
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
@@ -116,8 +131,7 @@ services:
     ports:
       - "9090:80"
     environment:
-      PMA_HOST: db
-      MYSQL_ROOT_PASSWORD: root
+      PMA_ARBITRARY: 1
     networks:
       - app-net
 
