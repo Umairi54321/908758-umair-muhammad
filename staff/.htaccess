@@ -1,20 +1,26 @@
-RewriteEngine on
+<IfModule mod_rewrite.c>
+    RewriteEngine on
 
-# Remove www and redirect to non-www version
-RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+    # Ensure index.php is used as the fallback
+    DirectoryIndex index.php
 
-# Remove trailing slash (except for directories)
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} /$
-RewriteRule ^(.*)/$ https://%{HTTP_HOST}/$1 [R=301,L]
+    # Remove www and redirect to non-www version
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
-# Hide the application and system directories by redirecting the request to index.php
-RewriteRule ^(application|system|\.svn) index.php/$1 [L]
+    # Remove trailing slash (except for directories)
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} /$
+    RewriteRule ^(.*)/$ https://%{HTTP_HOST}/$1 [R=301,L]
 
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php/$1 [QSA,L]
+    # Protect system/application folders
+    RewriteRule ^(application|system|\.svn) index.php/$1 [L]
+
+    # Rewrite all other requests to index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php/$1 [QSA,L]
+</IfModule>
 
 # Disable directory listing
 Options -Indexes
